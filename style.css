@@ -49,6 +49,11 @@ ol {
     --primary-gradient: linear-gradient(90deg, var(--gradient-start-color) 0%, var(--gradient-end-color) 45%);
 }
 
+html {
+    scroll-behavior: smooth; /* Garante rolagem suave para links de âncora */
+    scroll-padding-top: var(--header-height); /* Adiciona um preenchimento no topo igual à altura do cabeçalho fixo */
+}
+
 body {
     background-color: var(--bg-dark); /* Fundo escuro para o body */
     color: var(--text-color-light); /* Cor do texto padrão (claro) */
@@ -113,15 +118,15 @@ h6 {
 /* --- Header / Hero Section --- */
 
 .hero-title {
-    font-size: 4.3em;
-    margin-bottom: 30px;
+    font-size: 3.9em;
     line-height: 1.3;
+    margin-bottom: 30px;
     font-weight: 600;
 }
 
 .hero-subtitle {
-    font-size: 2.2em;
-    line-height: 1.4em;
+    font-size: 1.5em;
+    line-height: 1.5;
     margin-bottom: 40px;
     max-width: 800px;
     margin-left: auto;
@@ -134,7 +139,7 @@ h6 {
     padding: 0;
     text-align: center;
     background: url('/img/Microfone_Fundo_Principal.jpg') no-repeat center center/cover; /* Imagem de fundo responsiva */
-    min-height: calc(100vh - var(--header-height)); /* Ocupa a altura restante da tela */
+    min-height: calc(80vh - var(--header-height)); /* Ocupa a altura restante da tela */
     display: flex; /* Para centralizar o conteúdo da hero section */
     flex-direction: column;
     justify-content: center;
@@ -222,6 +227,7 @@ h6 {
     width: auto; /* Mantém a proporção */
 }
 
+
 .nav-links,
 .social-links {
     display: flex; /* Mantém os links em linha (tanto para nav quanto para social) */
@@ -252,7 +258,24 @@ h6 {
     align-items: center;
 }
 
-.social-links img {
+.social-links a {
+    display: flex; /* Transforma o link em flex container para centralizar o SVG */
+    justify-content: center;
+    align-items: center;
+    width: 36px; /* Largura do contêiner do ícone */
+    height: 36px; /* Altura do contêiner do ícone */
+    border-radius: 50%; /* Para um formato circular, se desejar */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Transição para a sombra e fundo */
+}
+
+
+.social-links a:hover {
+    box-shadow: 0 0 15px var(--primary-color-fallback); /* Efeito de box-shadow no hover */
+    background-color: rgba(255, 0, 0, 0.1); /* Um leve fundo no hover */
+}
+
+
+.social-links img { /* Esta regra pode não ser mais necessária se SVGInject estiver sendo usado */
     width: 24px;
     height: 24px;
     vertical-align: middle;
@@ -283,7 +306,8 @@ h6 {
 
 /* --- Seção Quem Somos --- */
 .about-section {
-    padding: 80px 20px;
+    height: 40vh;
+    padding: 100px 20px 20px 20px;
     background-color: var(--bg-dark); /* Fundo escuro */
     color: var(--text-color-light); /* Texto claro */
 }
@@ -316,23 +340,22 @@ h6 {
 
 .about-text-container {
     flex: 2;
-    font-size: 1.5em;
     font-weight: 200;
     text-align: justify;
 }
 
 .about-text {
-    font-size: 1.1em;
-    line-height: 1.8;
+    font-size: 1.5em;
+    line-height: 1.5;
     color: var(--text-color-light);
 }
 
 /* --- Seção Apresentadores --- */
 .presenters-section {
-    padding: 0;
+    padding: 80px 20px;
     position: relative;
     overflow: hidden;
-    min-height: 1080px; /* Garante que a seção tenha pelo menos 1080px de altura */
+    background-color: var(--bg-dark);
 }
 
 .presenters-section .section-title {
@@ -341,65 +364,20 @@ h6 {
     /* Removido margin-bottom aqui, será controlado pelo flexbox do .presenters-content */
 }
 
-/* Estilos para a imagem de fundo com gradientes */
-.presenters-background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('/img/imagem_apresentadores.jpg') no-repeat center center/cover; /* ALtere para o caminho da sua imagem */
-    z-index: 0; /* Fica por baixo do conteúdo */
-}
-
-/* Aplicação dos gradientes (os mesmos da hero-section) */
-.presenters-background::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to top,
-        #101010 0%, /* Preto sólido na base */
-        rgba(16, 16, 16, 0.72) 30%,
-        rgba(16, 16, 16, 0.45) 45%,
-        rgba(16, 16, 16, 0.19) 80%,
-        transparent 100% /* Transparente no topo */
-    );
-    z-index: 1; /* Fica acima da imagem de fundo */
-}
-
-.presenters-background::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(to bottom,
-        #101010 0%, /* Preto sólido no topo */
-        rgba(16, 16, 16, 0.72) 30%,
-        rgba(16, 16, 16, 0.45) 45%,
-        rgba(16, 16, 16, 0.19) 80%,
-        transparent 100% /* Transparente na base */
-    );
-    z-index: 1; /* Também fica acima da imagem de fundo */
-}
 
 /* Estilos para o conteúdo da seção (garante que fique por cima) */
 .presenters-content {
     position: relative;
     z-index: 2;
-    padding-top: 80px; /* Mantém o título próximo ao topo */
-    padding-bottom: 50px; /* Padding inferior */
+    padding-top: 0; /* Mantém o título próximo ao topo */
+    padding-bottom: 0; /* Padding inferior */
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
     color: var(--text-color-light);
     display: flex;
     flex-direction: column;
-    min-height: inherit; /* Garante que o container de conteúdo herde a altura mínima da seção */
+    min-height: 50vh;
     justify-content: space-between; /* Alinha o primeiro item ao topo e o último ao fundo */
     align-items: center; /* Centraliza horizontalmente o título e o grid */
 }
@@ -411,10 +389,13 @@ h6 {
     gap: 120px;
     max-width: 1200px;
     margin: auto auto 0; /* Empurra para o final do container flex e centraliza horizontalmente */
-    padding-bottom: 150px; /* Adiciona um padding extra acima do grid para empurrar um pouco mais para baixo */
+
 }
 
 .presenter-card {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
     flex: 1 1 300px;
     padding: 30px;
     text-align: center;
@@ -428,7 +409,6 @@ h6 {
     border-radius: 50%;
     object-fit: cover;
     margin: 0 auto 20px auto;
-    border: 3px solid var(--primary-color-fallback);
 }
 
 .presenter-name {
@@ -440,7 +420,7 @@ h6 {
 .presenter-description {
     text-align: justify;
     font-size: 1.5em;
-    line-height: 1.7;
+    line-height: 1.5;
     font-weight: 200;
 
     color: var(--text-color-light);
@@ -448,7 +428,7 @@ h6 {
 
 /* --- Seção Episódios Anteriores --- */
 .episodes-section {
-    padding: 80px 20px;
+    padding: 80px 100px;
     background-color: var(--bg-dark); /* Fundo escuro */
     text-align: center;
     color: var(--text-color-light); /* Texto claro */
@@ -506,7 +486,7 @@ h6 {
 }
 
 .video-item-principal iframe {
-    width: 80%; /* Ocupa 100% da largura do .video-item-principal */
+    width: auto; /* Ocupa 100% da largura do .video-item-principal */
     height: auto; /* Deixa a altura ser calculada automaticamente */
     aspect-ratio: 16 / 9; /* Mantém a proporção 16:9 */
     max-height: 700px; /* Altura máxima para o iframe principal */
@@ -525,17 +505,16 @@ h6 {
 .video-title {
     position: absolute;
     width: 100%;
-    border-radius: 16px;
-    font-size: 1.4em; /* Mantido o tamanho original, ajuste se precisar */
+    border-radius: 10px;
+    font-size: 1.1em; /* Mantido o tamanho original, ajuste se precisar */
     color: var(--text-color-light);
     bottom: 7px; /* Mantido o posicionamento original, ajuste se precisar */
     left: 0;
     background-color: rgba(16, 16, 16, 0.5);
-    padding: 10px;
+    padding: 0;
     text-align: center;
     z-index: 3;
     box-sizing: border-box;
-    font-size: 1.5em;
     line-height: 1.7;
     font-weight: 200;
 }
@@ -605,23 +584,34 @@ h6 {
 /* --- Seção Benefícios --- */
 
 .benefits-section {
-    
-    width: 100%; /* Isso está incorreto para largura, deve ser 100vw ou 100% */
-    padding: 80px 20px;
-    background: url('/img/bg_newsletter.jpg') no-repeat center center/cover; /* Imagem de fundo */
+    padding: 0; /* Remove padding da seção, aplicado aos filhos */
+    background-color: var(--bg-dark); /* Fundo escuro para a seção */
     color: var(--text-color-light);
-    display: flex; /* Transforma a seção em um contêiner flexível */
-    flex-direction: column; /* Empilha os itens verticalmente */
-    align-items: center; /* Centraliza os itens horizontalmente */
+    
+    display: flex; /* ESSENCIAL: Transforma a seção em um contêiner flexível */
+    flex-wrap: wrap; /* Permite que as colunas quebrem em linha em telas menores */
+    align-items: center; /* ALINHA VERTICALMENTE OS ITENS AO CENTRO */
+    justify-content: center; /* Centraliza horizontalmente o conteúdo se houver espaço extra */
+    
+    width: 100%;; /* Largura mínima para telas grandes */
+    height: 100%; /* Altura mínima para telas grandes */
+    
+    position: relative; /* Mantido para contexto, mas menos crítico com flexbox */
+    overflow: hidden;
 }
 
 .benefits-content-wrapper {
-    max-width: 1200px; /* Largura máxima para o conteúdo */
-    width: 100%; /* Ocupa a largura total disponível */
-    margin: 0 auto; /* Centraliza o wrapper */
-    text-align: left; /* Alinha todo o conteúdo interno à esquerda */
-    z-index: 1; /* Fica por baixo do conteúdo */
+  /* Ocupa metade do espaço disponível */
+    max-width: 100%; /* Garante 50% da largura em desktop */
+    padding: 80px 120px; /* Padding interno para o conteúdo */
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Alinha o conteúdo à esquerda */
+    justify-content: center; /* Centraliza verticalmente o conteúdo */
 }
+
 
 .benefits-section .section-title {
     color: var(--text-color-light);
@@ -639,14 +629,25 @@ h6 {
 }
 
 .benefits-form-wrapper { /* Novo wrapper para o input e botão */
+    width: 100%;
     display: flex;
     justify-content: flex-start; /* Alinha o formulário à esquerda */
     align-items: center;
     gap: 15px;
-    max-width: 600px; /* Limita a largura do formulário */
+    max-width: 1200px; /* Limita a largura do formulário */
     margin: 0 0 50px 0; /* Alinha à esquerda e adiciona margem inferior para o grid */
     flex-wrap: wrap; /* Permite quebrar em várias linhas em telas pequenas */
+    z-index: 1;
+    margin: 30px;
 }
+
+.bg_newsletter {
+    position: absolute;
+    max-width: 100vh;
+    max-height: 100vh;
+    background: url('/img/bg_newsletter_png.png') no-repeat center center/cover;
+}
+
 
 .email-input {
     flex-grow: 1;
@@ -722,16 +723,54 @@ h6 {
 }
 
 
+.sponsors-section {
+    background-color: #070707;
+    padding: 15px 30px;
+    text-align: center;
+    display: flex; 
+    flex-direction: column; 
+    align-items: center;
+}
+
+.sponsors-section .section-title {
+    margin-bottom: 30px;
+}
+
+.sponsors-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 70px;
+    max-width: 1200px;
+    width: 100%;
+    justify-items: center; 
+    align-items: center;
+}
+
+.sponsor-item {
+    display: flex; 
+    justify-content: center; 
+    align-items: center;
+    padding: 20px;
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+.sponsor-logo {
+    max-width: 100%; height: auto;
+    filter: grayscale(100%) brightness(150%);
+    filter: grayscale(0%) brightness(100%);
+}
+
 
 /* --- Footer --- */
 .main-footer {
-    background-color: var(--header-bg-color); /* Mesma cor do header */
+    background-color: var(--bg-dark); /* Mesma cor do header */
     height: 110px; /* Altura fixa do footer */
     display: flex; /* Usar flexbox para centralizar o conteúdo */
     justify-content: center; /* Centraliza horizontalmente */
     align-items: center; /* Centraliza verticalmente */
     text-align: center; /* Garante que o texto dentro do 'p' também seja centralizado */
-    color: var(--text-color-dark); /* Cor do texto escuro */
+    color: var(--t); /* Cor do texto escuro */
     font-size: 1em;
     padding: 0 20px; /* Adiciona padding lateral */
 }
@@ -873,5 +912,34 @@ h6 {
         height: auto;
         min-height: 110px;
         padding: 20px;
+    }
+
+        .benefits-section {
+        flex-direction: column; /* Empilha em mobile */
+        min-width: auto; /* Remove largura mínima fixa para mobile */
+        min-height: auto; /* Remove altura mínima fixa para mobile */
+    }
+
+    .benefits-content-wrapper,
+    .bg_newsletter {
+        max-width: 100%;
+        min-height: 250px; /* Altura mínima para cada parte no mobile */
+        /* Remova padding-top/bottom específicos da imagem aqui se eles não forem desejados no mobile/tablet */
+        background-position: center center; /* Centraliza a imagem no mobile/tablet */
+        background-size: contain; /* Garante que a imagem caiba no espaço */
+    }
+
+    .benefits-content-wrapper {
+        padding: 40px 20px;
+        align-items: center;
+    }
+
+    .benefits-section .section-title,
+    .benefits-intro-description,
+    .benefits-form-wrapper,
+    .benefits-grid {
+        text-align: center;
+        justify-content: center;
+        align-items: center;
     }
 }
