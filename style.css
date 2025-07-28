@@ -608,16 +608,12 @@ h6 {
 .video-grid {
     position: relative;
     display: grid;
-    /* Ajusta as colunas para os vídeos menores.
-       minmax(250px, 1fr) permite que cada vídeo tenha no mínimo 250px
-       e ocupe o espaço disponível igualmente. Isso deve permitir 3 vídeos por linha
-       dentro de 1000px de largura (1000px / 3 = ~333px por vídeo). */
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 15px;
     /* Espaçamento entre os vídeos menores */
     max-width: 900px;
     /* Alinha com a largura máxima do vídeo principal */
-    margin: 15px auto;
+    margin: auto;
     /* Centraliza horizontalmente */
     padding: 10px;
     overflow: hidden;
