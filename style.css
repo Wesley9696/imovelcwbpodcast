@@ -359,6 +359,12 @@ h6 {
     vertical-align: middle;
 }
 
+        .social-links svg {
+        width: 30px;
+        height: 30px;
+        /* Remove margem vertical extra */
+    }
+
 /* --- Botão Hambúrguer (Inicialmente oculto para desktop) --- */
 .hamburger-menu {
     display: none;
@@ -997,8 +1003,10 @@ h6 {
 .social-icons-grid {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap; /* Permite que os ícones quebrem linha em telas menores */
-    gap: 40px; /* Espaçamento entre os ícones */
+    flex-wrap: wrap;
+    /* Permite que os ícones quebrem linha em telas menores */
+    gap: 40px;
+    /* Espaçamento entre os ícones */
     max-width: 900px;
     margin: 0 auto;
 }
@@ -1006,23 +1014,29 @@ h6 {
 .social-icon-item {
     display: flex;
     align-items: center;
-    gap: 15px; /* Espaçamento entre o ícone e o texto */
-    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    gap: 15px;
+    /* Espaçamento entre o ícone e o texto */
+    background-color: rgba(255, 255, 255, 0.1);
+    /* Fundo semi-transparente */
     border-radius: 10px;
     padding: 15px 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    color: var(--text-color-light); /* Cor do texto do link */
+    color: var(--text-color-light);
+    /* Cor do texto do link */
 }
 
 .social-icon-item:hover {
-    transform: translateY(-5px); /* Efeito de "levantar" no hover */
+    transform: translateY(-5px);
+    /* Efeito de "levantar" no hover */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
-    background-color: rgba(255, 255, 255, 0.15); /* Um pouco mais opaco no hover */
+    background-color: rgba(255, 255, 255, 0.15);
+    /* Um pouco mais opaco no hover */
 }
 
 .social-icon-img {
-    width: 40px; /* Tamanho do ícone */
+    width: 40px;
+    /* Tamanho do ícone */
     height: 40px;
     object-fit: cover;
 }
@@ -1030,6 +1044,54 @@ h6 {
 .social-icon-text {
     font-size: 1.5em;
     font-weight: 500;
+}
+
+/* Estilos para o Botão Flutuante do WhatsApp */
+.whatsapp-float {
+    position: fixed; /* Fixa o botão na tela */
+    width: 60px; /* Largura do botão */
+    height: 60px; /* Altura do botão */
+    bottom: 40px; /* Distância do fundo da tela */
+    right: 40px; /* Distância da direita da tela */
+    background-color: #25D366; /* Cor de fundo verde do WhatsApp */
+    color: #FFF; /* Cor do ícone (branco) */
+    border-radius: 50%; /* Torna o botão circular */
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4); /* Sombra para destacar */
+    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
+    display: flex; /* Para centralizar o ícone */
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transição suave para hover */
+    animation: pulse 2s infinite ease-in-out; /* Adiciona a animação de pulsação */
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1); /* Aumenta ligeiramente no hover */
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6); /* Sombra mais intensa no hover */
+}
+
+.whatsapp-icon {
+    width: 35px; /* Tamanho do ícone dentro do botão */
+    height: 35px;
+    vertical-align: middle; /* Alinha verticalmente a imagem */
+}
+
+/* Animação de pulsação */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    }
+    50% {
+        transform: scale(1.08); /* Aumenta ligeiramente o tamanho */
+        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6); /* Aumenta a sombra */
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    }
 }
 
 /* --- Footer --- */
@@ -1138,6 +1200,7 @@ h6 {
     }
 
     .nav-links {
+        margin-top: 55px;
         flex-direction: column;
         /* Links de navegação empilhados */
         margin-bottom: 30px;
@@ -1147,8 +1210,8 @@ h6 {
     }
 
     .nav-links li {
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
 
@@ -1169,13 +1232,13 @@ h6 {
     }
 
     .social-links {
-        margin-top: auto;
+        margin-top: 10px;
         flex-direction: row;
         /* Redes sociais alinhadas na horizontal */
         justify-content: center;
         /* Centraliza as redes sociais */
         align-items: center;
-        gap: 25px;
+        gap: 15px;
         /* Espaçamento entre os ícones */
         width: 100%;
 
@@ -1184,6 +1247,12 @@ h6 {
 
     .social-links li {
         margin: 0;
+        /* Remove margem vertical extra */
+    }
+
+        .social-links svg {
+        width: 30px;
+        height: 30px;
         /* Remove margem vertical extra */
     }
 
@@ -1393,9 +1462,10 @@ h6 {
         flex-direction: row;
     }
 
-    
-
 }
+
+
+
 
 @media (max-width: 700px) {
 
@@ -1411,7 +1481,7 @@ h6 {
         display: none;
     }
 
-        .social-media-section {
+    .social-media-section {
         padding: 30px;
     }
 
@@ -1420,15 +1490,18 @@ h6 {
     }
 
     .social-icons-grid {
-        gap: 20px; /* Reduz o espaçamento em mobile */
+        gap: 20px;
+        /* Reduz o espaçamento em mobile */
 
     }
 
     .social-icon-item {
         align-items: center;
         text-align: center;
-        width: 60%; /* Ocupa a largura total em mobile */
-        justify-content: center; /* Centraliza o conteúdo do item */
+        width: 60%;
+        /* Ocupa a largura total em mobile */
+        justify-content: center;
+        /* Centraliza o conteúdo do item */
         padding: 12px 20px;
     }
 
@@ -1439,6 +1512,19 @@ h6 {
 
     .social-icon-text {
         font-size: 1.2em;
+    }
+
+    .whatsapp-float {
+        width: 50px; /* Reduz o tamanho do botão em telas menores */
+        height: 50px;
+        bottom: 20px; /* Ajusta a posição em telas menores */
+        right: 20px;
+        font-size: 24px;
+    }
+
+    .whatsapp-icon {
+        width: 30px; /* Reduz o tamanho do ícone em telas menores */
+        height: 30px;
     }
 
 }
