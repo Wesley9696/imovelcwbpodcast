@@ -27,42 +27,59 @@ ol {
 /* --- 2. Estilos Globais e Variáveis --- */
 :root {
     /* Cores do Gradiente - ATUALIZADAS */
-    --gradient-start-color: #FF0004; /* Vermelho vibrante */
-    --gradient-end-color: #FF5456; /* Rosa claro */
+    --gradient-start-color: #FF0004;
+    /* Vermelho vibrante */
+    --gradient-end-color: #FF5456;
+    /* Rosa claro */
 
     /* Variáveis para cores gerais */
-    --primary-color-fallback: #FF0004; /* Cor sólida de fallback: Vermelho puro */
+    --primary-color-fallback: #FF0004;
+    /* Cor sólida de fallback: Vermelho puro */
     --secondary-color: #6c757d;
-    --text-color-light: #f0f0f0; /* Para texto em fundos escuros */
-    --text-color-dark: #333; /* Para texto em fundos claros */
-    --bg-dark: #101010; /* Cor de fundo principal escura do body */
-    --bg-light: #f9f9f9; /* Cor de fundo clara para seções específicas */
+    --text-color-light: #f0f0f0;
+    /* Para texto em fundos escuros */
+    --text-color-dark: #333;
+    /* Para texto em fundos claros */
+    --bg-dark: #101010;
+    /* Cor de fundo principal escura do body */
+    --bg-light: #f9f9f9;
+    /* Cor de fundo clara para seções específicas */
 
     /* Variável para a Fonte */
-    --font-primary: 'Inter', sans-serif; /* Fonte Inter para toda a página */
+    --font-primary: 'Inter', sans-serif;
+    /* Fonte Inter para toda a página */
 
     /* Variáveis do Header e Footer */
-    --header-bg-color: #D9D9D9; /* Cor de fundo específica para o header e footer */
-    --header-height: 110px; /* Altura fixa para o header */
+    --header-bg-color: #D9D9D9;
+    /* Cor de fundo específica para o header e footer */
+    --header-height: 110px;
+    /* Altura fixa para o header */
 
     /* Variável para o Gradiente Linear - ATUALIZADA */
     --primary-gradient: linear-gradient(90deg, var(--gradient-start-color) 0%, var(--gradient-end-color) 45%);
 }
 
 html {
-    scroll-behavior: smooth; /* Garante rolagem suave para links de âncora */
-    scroll-padding-top: var(--header-height); /* Adiciona um preenchimento no topo igual à altura do cabeçalho fixo */
+    scroll-behavior: smooth;
+    /* Garante rolagem suave para links de âncora */
+    scroll-padding-top: var(--header-height);
+    /* Adiciona um preenchimento no topo igual à altura do cabeçalho fixo */
 }
 
 body {
-    background-color: var(--bg-dark); /* Fundo escuro para o body */
-    color: var(--text-color-light); /* Cor do texto padrão (claro) */
-    font-family: var(--font-primary); /* Fonte Inter para todo o texto */
-    line-height: 1.6; /* Altura da linha para melhor legibilidade */
+    background-color: var(--bg-dark);
+    /* Fundo escuro para o body */
+    color: var(--text-color-light);
+    /* Cor do texto padrão (claro) */
+    font-family: var(--font-primary);
+    /* Fonte Inter para todo o texto */
+    line-height: 1.6;
+    /* Altura da linha para melhor legibilidade */
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     padding-top: var(--header-height);
+    min-width: 320px;
 }
 
 h1,
@@ -71,27 +88,35 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: var(--font-primary); /* Garante que os títulos também usem Inter */
-    color: var(--text-color-light); /* Cor dos títulos padrão (claro) */
+    font-family: var(--font-primary);
+    /* Garante que os títulos também usem Inter */
+    color: var(--text-color-light);
+    /* Cor dos títulos padrão (claro) */
 }
 
 .gradient-text {
     /* Define o gradiente linear */
     background: var(--primary-gradient);
     /* Aplica o gradiente como máscara de texto */
-    -webkit-background-clip: text; /* Para navegadores baseados em WebKit (Chrome, Safari) */
-    background-clip: text; /* Padrão */
+    -webkit-background-clip: text;
+    /* Para navegadores baseados em WebKit (Chrome, Safari) */
+    background-clip: text;
+    /* Padrão */
     /* Torna o texto transparente para que o gradiente apareça */
-    -webkit-text-fill-color: transparent; /* Para navegadores baseados em WebKit */
-    color: #FF0004; /* Cor de fallback para navegadores que não suportam */
+    -webkit-text-fill-color: transparent;
+    /* Para navegadores baseados em WebKit */
+    color: #FF0004;
+    /* Cor de fallback para navegadores que não suportam */
 }
 
 /* Estilo para Títulos de Seção */
 .section-title {
     text-align: center;
     font-size: 2.8em;
-    margin-bottom: 30px; /* Mantido para separar do conteúdo caso não se ajuste perfeitamente */
-    color: var(--text-color-light); /* Títulos de seção claros por padrão */
+    margin-bottom: 30px;
+    /* Mantido para separar do conteúdo caso não se ajuste perfeitamente */
+    color: var(--text-color-light);
+    /* Títulos de seção claros por padrão */
 }
 
 .cta-button {
@@ -105,20 +130,25 @@ h6 {
     font-size: 1.4em;
     cursor: pointer;
     font-weight: 500;
-    background-size: 200% auto; /* Faz o gradiente ter o dobro do tamanho padrão */
-    transition: background-position 0.5s ease-out; /* Transição na posição do fundo */
+    background-size: 200% auto;
+    transition: transform 0.3s ease-in-out;
 }
 
 .cta-button:hover {
-    background-position: right center; /* Move o gradiente para a direita no hover */
+    box-shadow: 0 0 15px var(--primary-color-fallback);
+    background-color: rgba(255, 0, 0, 0.473);
+    transform: scale(1.1);
+    /* Efeito de zoom de 10% */
 }
 
-/* --- 3. Estilos por Seção --- */
+
+
 
 /* --- Header / Hero Section --- */
 
 .hero-title {
-    font-size: 3.9em;
+    font-size: clamp(2.5em, 8vw, 3.9em);
+    /* Tipografia fluida */
     line-height: 1.3;
     margin-bottom: 30px;
     font-weight: 600;
@@ -136,17 +166,24 @@ h6 {
 }
 
 .hero-section {
-    padding: 0;
+    padding: 80px 80px;
     text-align: center;
-    background: url('/img/Microfone_Fundo_Principal.jpg') no-repeat center center/cover; /* Imagem de fundo responsiva */
-    min-height: calc(80vh - var(--header-height)); /* Ocupa a altura restante da tela */
-    display: flex; /* Para centralizar o conteúdo da hero section */
+    background: url('/img/Microfone_Fundo_Principal.jpg') no-repeat center center/cover;
+    /* Imagem de fundo responsiva */
+    min-height: calc(60vh - var(--header-height));
+    /* Ocupa a altura restante da tela */
+    display: flex;
+    /* Para centralizar o conteúdo da hero section */
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative; /* ESSENCIAL para os pseudo-elementos */
-    color: white; /* Garante que o texto inicial seja visível sobre o gradiente/imagem */
-    overflow: hidden; /* Garante que nada transborde */
+    position: relative;
+    /* ESSENCIAL para os pseudo-elementos */
+    color: white;
+    /* Garante que o texto inicial seja visível sobre o gradiente/imagem */
+    overflow: hidden;
+    /* Garante que nada transborde */
+    z-index: 2;
 }
 
 .hero-section::before {
@@ -157,13 +194,16 @@ h6 {
     width: 100%;
     height: 100%;
     background: linear-gradient(to top,
-        #101010 0%, /* Preto sólido na base */
-        rgba(16, 16, 16, 0.72) 25%,
-        rgba(16, 16, 16, 0.45) 55%,
-        rgba(16, 16, 16, 0.19) 80%,
-        transparent 100% /* Transparente no topo */
-    );
-    z-index: 1; /* Fica acima da imagem de fundo */
+            #101010 0%,
+            /* Preto sólido na base */
+            rgba(16, 16, 16, 0.72) 25%,
+            rgba(16, 16, 16, 0.45) 55%,
+            rgba(16, 16, 16, 0.19) 80%,
+            transparent 100%
+            /* Transparente no topo */
+        );
+    z-index: -1;
+    /* Fica acima da imagem de fundo */
 }
 
 /* Gradiente de CIMA para BAIXO */
@@ -175,107 +215,145 @@ h6 {
     width: 100%;
     height: 100%;
     background: linear-gradient(to bottom,
-        #101010 0%, /* Preto sólido no topo */
-        rgba(16, 16, 16, 0.72) 20%,
-        rgba(16, 16, 16, 0.45) 45%,
-        rgba(16, 16, 16, 0.19) 70%,
-        transparent 100% /* Transparente na base */
-    );
-    z-index: 1; /* Também fica acima da imagem de fundo */
+            #101010 0%,
+            /* Preto sólido no topo */
+            rgba(16, 16, 16, 0.72) 20%,
+            rgba(16, 16, 16, 0.45) 45%,
+            rgba(16, 16, 16, 0.19) 70%,
+            transparent 100%
+            /* Transparente na base */
+        );
+    z-index: -1;
+    /* Também fica acima da imagem de fundo */
 }
 
-
-/* Certifique-se de que o CONTEÚDO da hero-section fique ACIMA dos gradientes */
 .hero-content {
-    position: relative; /* Essencial para que o conteúdo apareça */
-    z-index: 2; /* MAIOR que o z-index dos pseudo-elementos (1) */
-    text-align: left; /* Alinha o texto à esquerda dentro do container */
-    max-width: 1200px; /* Limita a largura do conteúdo para evitar que se estenda demais */
-    width: calc(100% - 280px); /* Ajuste: largura total menos a margem + um pequeno padding/segurança */
-    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
-    padding: 20px; /* Padding interno para o conteúdo */
-
+    position: relative;
+    z-index: 1;
+    text-align: left;
+    max-width: 1200px;
+    width: calc(100% - 40px);
+    box-sizing: border-box;
+    padding: 0;
 }
-
 
 .hero-content .hero-title,
 .hero-content .hero-subtitle,
 .hero-content .cta-button {
-    /* Remova qualquer text-align: center; se houver nessas classes para evitar conflito */
-    text-align: left; /* Garante que os filhos também se alinhem à esquerda */
-    margin-left: 0; /* Garante que eles não herdem margem extra */
-    margin-right: auto; /* Para centralizar blocos com width fixo (não o caso aqui) */
+    text-align: left;
+    margin-left: 0;
+    margin-right: auto;
 }
 
 .navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 40px; /* Padding horizontal */
+    padding: 0 40px;
+    /* Padding horizontal */
     background-color: rgb(43, 43, 43, 0.90);
-    height: var(--header-height); /* Altura fixa do header (110px) */
-    position: fixed; /* Torna o header fixo na tela */
-    top: 0; /* Ancorado no topo */
-    left: 0; /* Ancorado à esquerda */
-    width: 100%; /* Ocupa a largura total */
-    z-index: 1000; /* Garante que fique acima de outros elementos ao rolar */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra suave para destacar */
+    height: var(--header-height);
+    /* Altura fixa do header (110px) */
+    position: fixed;
+    /* Torna o header fixo na tela */
+    top: 0;
+    /* Ancorado no topo */
+    left: 0;
+    /* Ancorado à esquerda */
+    width: 100%;
+    /* Ocupa a largura total */
+    z-index: 1000;
+    /* Garante que fique acima de outros elementos ao rolar */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    /* Sombra suave para destacar */
 }
 
 .logo img {
-    height: 70px; /* Ajuste o tamanho do logo para se adequar aos 110px de altura do header */
-    width: auto; /* Mantém a proporção */
+    height: auto;
+    /* Ajuste o tamanho do logo para se adequar aos 110px de altura do header */
+    width: auto;
+    /* Mantém a proporção */
+}
+
+.hero-subtitle-links {
+    display: none;
 }
 
 
-.nav-links,
-.social-links {
-    display: flex; /* Mantém os links em linha (tanto para nav quanto para social) */
+.social-links,
+.nav-links {
+    display: flex;
+    /* Mantém os links em linha (tanto para nav quanto para social) */
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
+.nav-links {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
 .nav-links li,
 .social-links li {
-    margin: 0 15px; /* Espaçamento entre os itens */
+    margin: 0 5px;
 }
 
 .nav-links a,
 .social-links a {
-    color: var(--text-color-light); /* Links escuros para contraste com o header claro */
-    font-weight: 600; /* Um pouco mais negrito */
+    color: var(--text-color-light);
+    font-weight: 600;
+
     transition: color 0.3s ease;
+}
+
+.nav-links a {
+    margin: 0 15px;
 }
 
 .nav-links a:hover,
 .social-links a:hover {
-    color: var(--primary-color-fallback); /* Cor de destaque no hover (vermelho do gradiente) */
+    color: var(--primary-color-fallback);
+    /* Cor de destaque no hover (vermelho do gradiente) */
 }
 
 .social-links {
-    justify-content: center; /* Centraliza os ícones sociais horizontalmente no desktop */
-    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* ou start/end/space-between, conforme layout */
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .social-links a {
-    display: flex; /* Transforma o link em flex container para centralizar o SVG */
+    display: flex;
+    /* Transforma o link em flex container para centralizar o SVG */
     justify-content: center;
     align-items: center;
-    width: 36px; /* Largura do contêiner do ícone */
-    height: 36px; /* Altura do contêiner do ícone */
-    border-radius: 50%; /* Para um formato circular, se desejar */
-    transition: box-shadow 0.3s ease, background-color 0.3s ease; /* Transição para a sombra e fundo */
+    width: 36px;
+    /* Largura do contêiner do ícone */
+    height: 36px;
+    /* Altura do contêiner do ícone */
+    border-radius: 50%;
+    /* Para um formato circular, se desejar */
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    /* Transição para a sombra e fundo */
 }
 
 
 .social-links a:hover {
-    box-shadow: 0 0 15px var(--primary-color-fallback); /* Efeito de box-shadow no hover */
-    background-color: rgba(255, 0, 0, 0.1); /* Um leve fundo no hover */
+    box-shadow: 0 0 15px var(--primary-color-fallback);
+    /* Efeito de box-shadow no hover */
+    background-color: rgba(255, 0, 0, 0.473);
+    /* Um leve fundo no hover */
 }
 
 
-.social-links img { /* Esta regra pode não ser mais necessária se SVGInject estiver sendo usado */
+.social-links img {
+    /* Esta regra pode não ser mais necessária se SVGInject estiver sendo usado */
     width: 24px;
     height: 24px;
     vertical-align: middle;
@@ -283,39 +361,54 @@ h6 {
 
 /* --- Botão Hambúrguer (Inicialmente oculto para desktop) --- */
 .hamburger-menu {
-    display: none; /* Oculto por padrão em desktop */
+    display: none;
+    /* Oculto por padrão em desktop */
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
-    position: absolute; /* Posição absoluta em relação ao navbar */
-    right: 20px; /* À direita */
-    top: 50%; /* Centraliza verticalmente */
-    transform: translateY(-50%);
-    z-index: 1001; /* Garante que fique acima dos links */
+    position: relative;
+    /* Posição relativa para o alinhamento no flexbox */
+    z-index: 1001;
+    /* Garante que fique acima dos links */
 }
 
 .hamburger-menu .bar {
     display: block;
     width: 30px;
     height: 3px;
-    background-color: var(--text-color-dark); /* Barras escuras para contraste */
+    background-color: var(--text-color-light);
+    /* Barras claras para contraste com o header escuro */
     margin: 6px 0;
     transition: all 0.3s ease-in-out;
 }
 
+/* Container do menu de navegação e social (para mobile) */
+.nav-menu-container {
+    display: flex;
+    /* Por padrão, em desktop, ele é um flex container */
+    flex-direction: row;
+    /* Itens em linha em desktop */
+    align-items: center;
+    width: auto;
+    position: static;
+    background-color: transparent;
+    transition: transform 0.3s ease-in-out;
+}
+
 /* --- Seção Quem Somos --- */
 .about-section {
-    height: 40vh;
-    padding: 100px 20px 20px 20px;
-    background-color: var(--bg-dark); /* Fundo escuro */
-    color: var(--text-color-light); /* Texto claro */
+    min-height: auto;
+    padding: 100px 70px 20px 70px;
+    color: var(--text-color-light);
+
 }
 
 .about-content-wrapper {
     display: flex;
     justify-content: center;
-    align-items: flex-start; /* Alinha no topo, pois o texto pode ter alturas diferentes */
+    align-items: flex-start;
+    /* Alinha no topo, pois o texto pode ter alturas diferentes */
     gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
@@ -331,9 +424,12 @@ h6 {
     font-size: 4.3em;
     color: var(--text-color-light);
     line-height: 1.2;
-    width: fit-content; /* Permite que o h2 se ajuste ao conteúdo */
-    margin: 0 auto; /* Centraliza o bloco h2 na div pai */
-    text-align: left; /* Alinha o texto dentro do h2 à esquerda */
+    width: fit-content;
+    /* Permite que o h2 se ajuste ao conteúdo */
+    margin: 0 auto;
+    /* Centraliza o bloco h2 na div pai */
+    text-align: left;
+    /* Alinha o texto dentro do h2 à esquerda */
     margin-bottom: 30px;
     font-weight: 600;
 }
@@ -355,12 +451,14 @@ h6 {
     padding: 80px 20px;
     position: relative;
     overflow: hidden;
-    background-color: var(--bg-dark);
+    z-index: 1;
 }
 
 .presenters-section .section-title {
     color: var(--text-color-light);
-    margin-top: 0; /* Remove qualquer margem superior padrão do título */
+    margin-top: 0;
+
+    /* Remove qualquer margem superior padrão do título */
     /* Removido margin-bottom aqui, será controlado pelo flexbox do .presenters-content */
 }
 
@@ -368,9 +466,11 @@ h6 {
 /* Estilos para o conteúdo da seção (garante que fique por cima) */
 .presenters-content {
     position: relative;
-    z-index: 2;
-    padding-top: 0; /* Mantém o título próximo ao topo */
-    padding-bottom: 0; /* Padding inferior */
+    z-index: 1;
+    padding-top: 0;
+    /* Mantém o título próximo ao topo */
+    padding-bottom: 0;
+    /* Padding inferior */
     padding-left: 20px;
     padding-right: 20px;
     text-align: center;
@@ -378,8 +478,10 @@ h6 {
     display: flex;
     flex-direction: column;
     min-height: 50vh;
-    justify-content: space-between; /* Alinha o primeiro item ao topo e o último ao fundo */
-    align-items: center; /* Centraliza horizontalmente o título e o grid */
+    justify-content: space-between;
+    /* Alinha o primeiro item ao topo e o último ao fundo */
+    align-items: center;
+    /* Centraliza horizontalmente o título e o grid */
 }
 
 .presenters-grid {
@@ -388,18 +490,18 @@ h6 {
     justify-content: center;
     gap: 120px;
     max-width: 1200px;
-    margin: auto auto 0; /* Empurra para o final do container flex e centraliza horizontalmente */
+    margin: auto auto 0;
+    /* Empurra para o final do container flex e centraliza horizontalmente */
 
 }
 
 .presenter-card {
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     align-items: center;
     flex: 1 1 300px;
     padding: 30px;
     text-align: center;
-    min-width: 280px;
     color: var(--text-color-light);
 }
 
@@ -415,6 +517,9 @@ h6 {
     font-size: 1.8em;
     margin-bottom: 30px;
     line-height: 1.2;
+    font-weight: 200;
+
+
 }
 
 .presenter-description {
@@ -429,25 +534,75 @@ h6 {
 /* --- Seção Episódios Anteriores --- */
 .episodes-section {
     padding: 80px 100px;
-    background-color: var(--bg-dark); /* Fundo escuro */
+    /* Fundo escuro */
     text-align: center;
-    color: var(--text-color-light); /* Texto claro */
+    color: var(--text-color-light);
+    /* Texto claro */
+
 }
 
 .episodes-section .section-title {
-    color: var(--text-color-light); /* Título de seção claro */
+    color: var(--text-color-light);
+    /* Título de seção claro */
 }
 
 .video-grid-principal {
     position: relative;
     display: grid;
     /* Define uma única coluna para o vídeo principal e centraliza-o */
-    grid-template-columns: 1fr; 
-    justify-items: center; /* Centraliza o item na grade */
-    max-width: 900px; /* Largura máxima para o container do vídeo principal */
-    margin: 0 auto 20px auto; /* Centraliza horizontalmente e adiciona margem inferior */
+    grid-template-columns: 1fr;
+    justify-items: center;
+    /* Centraliza o item na grade */
+    max-width: 900px;
+    /* Largura máxima para o container do vídeo principal */
+    margin: 0 auto 20px auto;
+    /* Centraliza horizontalmente e adiciona margem inferior */
+    padding: 0;
+
+    overflow: hidden;
+
+}
+
+.video-item-principal {
+    position: relative;
+    border-radius: 16px;
     padding: 0;
     overflow: hidden;
+    text-align: center;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+
+
+    /* Garante que o item principal ocupe a largura da sua grid (1fr) */
+}
+
+.video-grid-principal:hover {
+    box-shadow: 0 0 15px var(--primary-color-fallback);
+    /* Efeito de box-shadow no hover */
+    background-color: rgba(255, 0, 0, 0.473);
+    border-radius: 16px;
+}
+
+.video-item:hover {
+    box-shadow: 0 0 10px var(--primary-color-fallback);
+    /* Efeito de box-shadow no hover */
+    background-color: rgba(255, 0, 0, 0.473);
+    border-radius: 10px;
+}
+
+.video-item-principal iframe {
+    width: 100%;
+    /* Ocupa 100% da largura do .video-item-principal */
+    height: 100%;
+    /* Deixa a altura ser calculada automaticamente */
+    aspect-ratio: 16 / 9;
+
+    /* Mantém a proporção 16:9 */
+
+    /* Altura máxima para o iframe principal */
+    border-radius: 16px;
+
 }
 
 .video-grid {
@@ -457,58 +612,52 @@ h6 {
        minmax(250px, 1fr) permite que cada vídeo tenha no mínimo 250px
        e ocupe o espaço disponível igualmente. Isso deve permitir 3 vídeos por linha
        dentro de 1000px de largura (1000px / 3 = ~333px por vídeo). */
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-    gap: 25px; /* Espaçamento entre os vídeos menores */
-    max-width: 900px; /* Alinha com a largura máxima do vídeo principal */
-    margin: 0 auto; /* Centraliza horizontalmente */
-    padding: 0px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    /* Espaçamento entre os vídeos menores */
+    max-width: 900px;
+    /* Alinha com a largura máxima do vídeo principal */
+    margin: 15px auto;
+    /* Centraliza horizontalmente */
+    padding: 10px;
     overflow: hidden;
-}
 
-.video-item-principal {
-    position: relative;
-    background-color: rgba(16, 16, 16, 0.5);
-    border-radius: 16px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    padding: 0;
-    overflow: hidden;
-    text-align: center;
-    width: 100%; /* Garante que o item principal ocupe a largura da sua grid (1fr) */
+
 }
 
 .video-item {
     position: relative;
-    background-color: rgba(16, 16, 16, 0.5);
     border-radius: 16px;
     padding: 0;
     overflow: hidden;
     text-align: center;
-}
 
-.video-item-principal iframe {
-    width: auto; /* Ocupa 100% da largura do .video-item-principal */
-    height: auto; /* Deixa a altura ser calculada automaticamente */
-    aspect-ratio: 16 / 9; /* Mantém a proporção 16:9 */
-    max-height: 700px; /* Altura máxima para o iframe principal */
-    border-radius: 16px;
-    margin-bottom: 0;
 }
 
 .video-item iframe {
     width: 100%;
-    height: auto; /* Deixa a altura ser calculada automaticamente */
-    aspect-ratio: 16 / 9; /* Mantém a proporção 16:9 */
+    /* Ocupa 100% da largura do .video-item-principal */
+    height: 100%;
+    /* Deixa a altura ser calculada automaticamente */
+    aspect-ratio: 16 / 9;
+    /* Deixa a altura ser calculada automaticamente */
+
+    /* Mantém a proporção 16:9 */
     border-radius: 16px;
     margin-bottom: 0;
+
+
 }
 
 .video-title {
     position: absolute;
     width: 100%;
     border-radius: 10px;
-    font-size: 1.1em; /* Mantido o tamanho original, ajuste se precisar */
+    font-size: 1.1em;
+    /* Mantido o tamanho original, ajuste se precisar */
     color: var(--text-color-light);
-    bottom: 7px; /* Mantido o posicionamento original, ajuste se precisar */
+    bottom: 7px;
+    /* Mantido o posicionamento original, ajuste se precisar */
     left: 0;
     background-color: rgba(16, 16, 16, 0.5);
     padding: 0;
@@ -519,18 +668,57 @@ h6 {
     font-weight: 200;
 }
 
+/* Novo estilo para o elemento de fundo SVG */
+.fundo-svg-1 {
+    position: absolute;
+    /* Posiciona o elemento de forma absoluta em relação ao seu pai com position: relative */
+    z-index: -1;
+    /* Garante que fique atrás do conteúdo principal */
+    left: -100px;
+    /* Alinha o elemento totalmente à direita do pai */
+    top: 100rem;
+    /* Ajustado para mover o elemento mais para baixo */
+    transform: translateY(-50%);
+    /* Ajusta a centralização vertical para ser perfeita */
+    width: 50%;
+    /* Ocupa 50% da largura do contêiner pai */
+    height: auto;
+}
+
+.fundo-svg-2 {
+    position: absolute;
+    /* Posiciona o elemento de forma absoluta em relação ao seu pai com position: relative */
+    z-index: -1;
+    /* Garante que fique atrás do conteúdo principal */
+    right: 0;
+    /* Alinha o elemento totalmente à direita do pai */
+    top: 160rem;
+    /* Centraliza verticalmente o elemento */
+    transform: translateY(-50%);
+    /* Ajusta a centralização vertical para ser perfeita */
+    width: 50%;
+    /* Ocupa 50% da largura do contêiner pai */
+    height: auto;
+    /* Mantém a proporção da imagem SVG */
+    /* Removido margin-top: 0; pois top/transform já gerenciam a posição vertical */
+}
+
+
 
 /* --- Seção Newsletter --- */
 /* --- Seção Newsletter --- */
 .newsletter-section {
-    background-color: var(--bg-light); /* Fundo claro para a newsletter */
+    background-color: var(--bg-light);
+    /* Fundo claro para a newsletter */
     padding: 80px 20px;
     text-align: center;
-    color: var(--text-color-dark); /* Texto escuro */
+    color: var(--text-color-dark);
+    /* Texto escuro */
 }
 
 .newsletter-section .section-title {
-    color: var(--text-color-dark); /* Título escuro */
+    color: var(--text-color-dark);
+    /* Título escuro */
 }
 
 .newsletter-description {
@@ -547,98 +735,141 @@ h6 {
     gap: 15px;
     max-width: 600px;
     margin: 0 auto;
-    flex-wrap: wrap; /* Permite quebrar em várias linhas em telas pequenas */
+    flex-wrap: wrap;
+    /* Permite quebrar em várias linhas em telas pequenas */
 }
 
 .email-input {
-    flex-grow: 1; /* Permite que o input cresça */
+    flex-grow: 1;
+    /* Permite que o input cresça */
     padding: 15px 20px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 16px;
     font-size: 1.1em;
-    max-width: 400px; /* Limita a largura máxima */
-    color: var(--text-color-dark); /* Texto digitado escuro */
-    background-color: #fff; /* Fundo do input branco */
+    max-width: 400px;
+    /* Limita a largura máxima */
+    color: var(--text-color-dark);
+    background-color: #fff;
 }
 
-.button-icon{
+.button-icon {
     margin-left: 10px;
 }
 
 .subscribe-button {
-    background-image: var(--primary-gradient); /* Aplica o gradiente ao botão de inscrever */
-    background-color: var(--primary-color-fallback); /* Fallback */
-    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: var(--primary-gradient);
+
+    background-color: var(--primary-color-fallback);
+
+    color: rgb(255, 255, 255);
     padding: 15px 30px;
     border: none;
-    border-radius: 8px;
+    border-radius: 16px;
     font-size: 1.1em;
+    font-weight: 500;
     cursor: pointer;
-    transition: filter 0.3s ease;
+    transition: transform 0.3s ease;
+    /* Transição para o zoom e filtro */
 }
 
 .subscribe-button:hover {
-    filter: brightness(1.1);
+
+    box-shadow: 0 0 15px var(--primary-color-fallback);
+    /* Efeito de box-shadow no hover */
+    background-color: rgba(255, 0, 0, 0.473);
+    transform: scale(1.1);
+    /* Efeito de zoom de 10% */
 }
+
+
+
 
 /* --- Seção Benefícios --- */
 
 .benefits-section {
-    padding: 0; /* Remove padding da seção, aplicado aos filhos */
-    background-color: var(--bg-dark); /* Fundo escuro para a seção */
+    padding: 0;
+    /* Remove padding da seção, aplicado aos filhos */
+
+    /* Fundo escuro para a seção */
     color: var(--text-color-light);
-    
-    display: flex; /* ESSENCIAL: Transforma a seção em um contêiner flexível */
-    flex-wrap: wrap; /* Permite que as colunas quebrem em linha em telas menores */
-    align-items: center; /* ALINHA VERTICALMENTE OS ITENS AO CENTRO */
-    justify-content: center; /* Centraliza horizontalmente o conteúdo se houver espaço extra */
-    
-    width: 100%;; /* Largura mínima para telas grandes */
-    height: 100%; /* Altura mínima para telas grandes */
-    
-    position: relative; /* Mantido para contexto, mas menos crítico com flexbox */
+
+    display: flex;
+    /* ESSENCIAL: Transforma a seção em um contêiner flexível */
+    flex-wrap: wrap;
+    /* Permite que as colunas quebrem em linha em telas menores */
+    align-items: center;
+    /* ALINHA VERTICALMENTE OS ITENS AO CENTRO */
+    justify-content: center;
+    /* Centraliza horizontalmente o conteúdo se houver espaço extra */
+    z-index: 1;
+    width: 100%;
+    ;
+    /* Largura mínima para telas grandes */
+    height: 100%;
+    /* Altura mínima para telas grandes */
+
+    position: relative;
+    /* Mantido para contexto, mas menos crítico com flexbox */
     overflow: hidden;
 }
 
 .benefits-content-wrapper {
-  /* Ocupa metade do espaço disponível */
-    max-width: 100%; /* Garante 50% da largura em desktop */
-    padding: 80px 120px; /* Padding interno para o conteúdo */
+    /* Ocupa metade do espaço disponível */
+    max-width: 100%;
+    /* Garante 50% da largura em desktop */
+    padding: 80px 120px;
+    /* Padding interno para o conteúdo */
     box-sizing: border-box;
     z-index: 1;
     display: flex;
     flex-direction: column;
-    align-items: flex-start; /* Alinha o conteúdo à esquerda */
-    justify-content: center; /* Centraliza verticalmente o conteúdo */
+    align-items: flex-start;
+    /* Alinha o conteúdo à esquerda */
+    justify-content: center;
+    /* Centraliza verticalmente o conteúdo */
 }
 
 
 .benefits-section .section-title {
     color: var(--text-color-light);
-    text-align: left; /* Alinha o título da seção à esquerda */
-    margin-bottom: 20px; /* Espaço abaixo do título */
+    text-align: left;
+    /* Alinha o título da seção à esquerda */
+    margin-bottom: 20px;
+    /* Espaço abaixo do título */
 }
 
-.benefits-intro-description { /* Nova classe para a descrição introdutória */
+.benefits-intro-description {
+    /* Nova classe para a descrição introdutória */
     font-size: 1.3em;
     color: var(--text-color-light);
-    margin-bottom: 40px; /* Espaço abaixo da descrição e antes do formulário */
-    max-width: 600px; /* Limita a largura da descrição */
-    margin-left: 0; /* Alinha à esquerda */
-    margin-right: auto; /* Empurra para a esquerda */
+    margin-bottom: 40px;
+    /* Espaço abaixo da descrição e antes do formulário */
+    max-width: 600px;
+    /* Limita a largura da descrição */
+    margin-left: 0;
+    /* Alinha à esquerda */
+    margin-right: auto;
+    /* Empurra para a esquerda */
 }
 
-.benefits-form-wrapper { /* Novo wrapper para o input e botão */
+.benefits-form-wrapper {
+    /* Novo wrapper para o input e botão */
     width: 100%;
     display: flex;
-    justify-content: flex-start; /* Alinha o formulário à esquerda */
+    justify-content: flex-start;
+    /* Alinha o formulário à esquerda */
     align-items: center;
     gap: 15px;
-    max-width: 1200px; /* Limita a largura do formulário */
-    margin: 0 0 50px 0; /* Alinha à esquerda e adiciona margem inferior para o grid */
-    flex-wrap: wrap; /* Permite quebrar em várias linhas em telas pequenas */
+    max-width: 1200px;
+    /* Limita a largura do formulário */
+    margin: 0 0 50px 0;
+    /* Alinha à esquerda e adiciona margem inferior para o grid */
+    flex-wrap: wrap;
+    /* Permite quebrar em várias linhas em telas pequenas */
     z-index: 1;
-    margin: 30px;
 }
 
 .bg_newsletter {
@@ -660,48 +891,37 @@ h6 {
     background-color: #fff;
 }
 
-.subscribe-button {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-image: var(--primary-gradient);
-    background-color: var(--primary-color-fallback);
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    border-radius: 16px;
-    font-size: 1.1em;
-    cursor: pointer;
-    transition: filter 0.3s ease;
-}
-
-.subscribe-button:hover {
-    filter: brightness(1.1);
-}
 
 
 
 .benefits-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 30px;
-    max-width: 1200px; /* Mantém a largura máxima do grid */
-    width: 100%; /* Ocupa a largura total do benefits-content-wrapper */
-    margin: 0; /* Remove margens padrão para não interferir no alinhamento */
-    justify-items: flex-start; /* Alinha os itens individuais do grid à esquerda */
+    max-width: 1200px;
+    /* Mantém a largura máxima do grid */
+    width: 100%;
+    /* Ocupa a largura total do benefits-content-wrapper */
+    margin: 0;
+    /* Remove margens padrão para não interferir no alinhamento */
+    justify-items: flex-start;
+    /* Alinha os itens individuais do grid à esquerda */
 }
 
 .benefit-item {
     padding: 10px;
-    text-align: left; /* ALTERADO: Alinha o texto e elementos inline-block à esquerda */
+    text-align: left;
+    /* ALTERADO: Alinha o texto e elementos inline-block à esquerda */
     color: var(--text-color-light);
 }
 
 .benefit-icon {
     width: 60px;
     height: 60px;
-    margin: 0 0 20px 0; /* ALTERADO: Remove o 'auto' para alinhar à esquerda */
-    display: block; /* Garante que o ícone ocupe sua própria linha e o margin funcione */
+    margin: 0 0 20px 0;
+    /* ALTERADO: Remove o 'auto' para alinhar à esquerda */
+    display: block;
+    /* Garante que o ícone ocupe sua própria linha e o margin funcione */
 }
 
 .benefit-title {
@@ -710,7 +930,8 @@ h6 {
     /* Gradiente no texto do título do benefício */
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-color: var(--bg-light); /* Fallback */
+    background-color: var(--bg-light);
+    /* Fallback */
     margin-bottom: 10px;
 }
 
@@ -725,126 +946,263 @@ h6 {
 
 .sponsors-section {
     background-color: #070707;
-    padding: 15px 30px;
+    padding: 30px;
     text-align: center;
-    display: flex; 
-    flex-direction: column; 
+    display: flex;
+    flex-direction: column;
     align-items: center;
+
 }
 
 .sponsors-section .section-title {
     margin-bottom: 30px;
+
 }
 
 .sponsors-grid {
-    display: grid; 
+    display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
     gap: 70px;
     max-width: 1200px;
     width: 100%;
-    justify-items: center; 
+    justify-content: space-between;
     align-items: center;
 }
 
 .sponsor-item {
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    /* muda para flex */
+    justify-content: center;
+    /* centraliza horizontalmente */
     align-items: center;
-    padding: 20px;
-    border-radius: 16px;
-    overflow: hidden;
+    /* centraliza verticalmente */
 }
+
 
 .sponsor-logo {
-    max-width: 100%; height: auto;
-    filter: grayscale(100%) brightness(150%);
-    filter: grayscale(0%) brightness(100%);
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: transform 0.3s ease;
+    /* Transição para o zoom e filtro */
 }
 
+.sponsor-logo:hover {
+
+    transform: scale(1.1);
+    /* Efeito de zoom de 10% */
+
+
+}
+
+.social-media-section {
+    padding: 80px 30px;
+    text-align: center;
+}
+
+.social-media-section .section-title {
+    margin-bottom: 50px;
+}
+
+.social-icons-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Permite que os ícones quebrem linha em telas menores */
+    gap: 40px; /* Espaçamento entre os ícones */
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.social-icon-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Espaçamento entre o ícone e o texto */
+    background-color: rgba(255, 255, 255, 0.1); /* Fundo semi-transparente */
+    border-radius: 10px;
+    padding: 15px 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    color: var(--text-color-light); /* Cor do texto do link */
+}
+
+.social-icon-item:hover {
+    transform: translateY(-5px); /* Efeito de "levantar" no hover */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.15); /* Um pouco mais opaco no hover */
+}
+
+.social-icon-img {
+    width: 40px; /* Tamanho do ícone */
+    height: 40px;
+    object-fit: cover;
+}
+
+.social-icon-text {
+    font-size: 1.5em;
+    font-weight: 500;
+}
 
 /* --- Footer --- */
 .main-footer {
-    background-color: var(--bg-dark); /* Mesma cor do header */
-    height: 110px; /* Altura fixa do footer */
-    display: flex; /* Usar flexbox para centralizar o conteúdo */
-    justify-content: center; /* Centraliza horizontalmente */
-    align-items: center; /* Centraliza verticalmente */
-    text-align: center; /* Garante que o texto dentro do 'p' também seja centralizado */
-    color: var(--t); /* Cor do texto escuro */
+    background-color: var(--bg-dark);
+    /* Mesma cor do header */
+    height: 100px;
+    /* Altura fixa do footer */
+    display: flex;
+    /* Usar flexbox para centralizar o conteúdo */
+    justify-content: center;
+    /* Centraliza horizontalmente */
+    align-items: center;
+    /* Centraliza verticalmente */
+    text-align: center;
+    /* Garante que o texto dentro do 'p' também seja centralizado */
+    color: var(--t);
+    /* Cor do texto escuro */
     font-size: 1em;
-    padding: 0 20px; /* Adiciona padding lateral */
+    padding: 0 20px;
+    /* Adiciona padding lateral */
 }
 
 .main-footer p {
-    margin: 0; /* Remove margem padrão do parágrafo */
+    margin: 0;
+    /* Remove margem padrão do parágrafo */
 }
 
-/* --- Media Query para Telas Menores (Responsividade Global) --- */
-@media (max-width: 768px) {
-    /* --- Navbar Responsiva --- */
+@media (max-width: 1140px) {
+    .social-links {
+        gap: 0;
+    }
+}
+
+
+@media (max-width: 1023px) {
+
+    body {
+        padding-top: 40px;
+    }
+
     .navbar {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
         justify-content: space-between;
         align-items: center;
         padding: 0 20px;
-        height: var(--header-height);
+        height: 64px;
+    }
+
+    .navbar-left {
+        order: 1;
+        /* Garante que a logo fique na esquerda */
+    }
+
+    .navbar-right {
+        order: 2;
+        /* Garante que o hambúrguer fique na direita */
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
     }
 
     .hamburger-menu {
         display: block;
-        right: 20px;
-        top: 50%;
-        transform: translateY(-50%);
+        /* Mostra o botão hambúrguer em mobile */
+        /* Removido o posicionamento absoluto, agora é parte do fluxo flex */
     }
 
-    .nav-links-container,
-    .social-links-container {
-        display: none; /* Oculto por padrão */
-        width: 100%;
-        text-align: center;
-        position: absolute;
-        top: var(--header-height); /* Posiciona abaixo do header fixo */
-        left: 0;
-        padding: 20px 0;
-        background-color: rgba(217, 217, 217, 0.98); /* Fundo semi-transparente para o menu mobile */
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
+    .nav-menu-container {
+        display: flex;
+        /* Torna o container flexível */
+        flex-direction: column;
+        /* Empilha os links verticalmente */
+        position: fixed;
+        /* Fixa o menu lateralmente */
+        top: 64px;
+        /* Começa abaixo do header */
+        right: -100%;
+        /* Esconde o menu fora da tela */
+        width: 70%;
+        /* Largura do menu lateral */
+        max-width: 300px;
+        /* Largura máxima para o menu lateral */
+        height: calc(100vh - 64px);
+        /* Ocupa a altura restante da tela */
+        background-color: rgba(43, 43, 43, 0.95);
+        /* Fundo escuro semi-transparente */
+        box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+        /* Sombra para destacar */
+        padding: 0 20px 20px 20px;
+        transition: right 0.3s ease-in-out;
+        /* Transição para o slide-in/out */
+        z-index: 999;
+        /* Abaixo do hambúrguer, mas acima do conteúdo */
+        overflow-y: auto;
+        /* Adiciona scroll se o conteúdo for muito longo */
+    }
+
+    .hero-section {
+        padding: 80px 20px;
+    }
+
+    .nav-menu-container.active {
+        right: 0;
+        /* Desliza o menu para dentro da tela */
     }
 
     .nav-links {
-        flex-direction: column; /* Links de navegação empilhados */
-        margin-bottom: 20px;
+        flex-direction: column;
+        /* Links de navegação empilhados */
+        margin-bottom: 30px;
+        /* Espaçamento entre as seções de links */
+        width: 100%;
+        /* Ocupa a largura total do container */
+    }
+
+    .nav-links li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+    }
+
+
+    .nav-links a {
+        color: var(--text-color-light);
+        /* Links claros no menu mobile */
+        font-size: 1.2em;
+        display: block;
+        /* Garante que o link ocupe toda a largura do item da lista */
+        padding: 10px 0;
+
+        margin: 15px 15px;
+    }
+
+    .nav-links li:last-child a {
+        border-bottom: none;
+        /* Remove a borda do último item */
     }
 
     .social-links {
-        display: flex;
-        flex-direction: row; /* Redes sociais alinhadas na horizontal */
-        justify-content: center; /* Centraliza as redes sociais */
+        margin-top: auto;
+        flex-direction: row;
+        /* Redes sociais alinhadas na horizontal */
+        justify-content: center;
+        /* Centraliza as redes sociais */
         align-items: center;
-        gap: 20px; /* Espaçamento entre os ícones */
-        flex-wrap: wrap; /* Permite quebra de linha se muitos ícones */
+        gap: 25px;
+        /* Espaçamento entre os ícones */
+        width: 100%;
+
+        /* Ocupa a largura total do container */
     }
 
-    .nav-links li,
     .social-links li {
-        margin: 10px 0; /* Mais espaçamento vertical para links nav, horizontal para sociais controlado por gap */
+        margin: 0;
+        /* Remove margem vertical extra */
     }
 
-    .nav-links a,
-    .social-links a {
-        color: var(--text-color-dark); /* Links escuros no menu mobile expandido */
-    }
-
-    /* Estilos para quando o menu está "ativo" (aberto) */
-    .navbar.active .nav-links-container,
-    .navbar.active .social-links-container {
-        display: flex; /* Mostra os contêineres quando ativo */
-        flex-direction: column; /* Garante que o menu principal e social fiquem empilhados um acima do outro */
-    }
 
     /* Animação do botão hambúrguer para X */
     .hamburger-menu.active .bar:nth-child(1) {
         transform: translateY(9px) rotate(45deg);
-        background-color: var(--text-color-dark);
+        background-color: var(--text-color-light);
+        /* Cor clara para o X */
     }
 
     .hamburger-menu.active .bar:nth-child(2) {
@@ -853,84 +1211,131 @@ h6 {
 
     .hamburger-menu.active .bar:nth-child(3) {
         transform: translateY(-9px) rotate(-45deg);
-        background-color: var(--text-color-dark);
+        background-color: var(--text-color-light);
+        /* Cor clara para o X */
     }
 
-    /* --- Outras Seções (Ajustes de responsividade) --- */
     .hero-title {
-        font-size: 2.5em; /* Reduz tamanho da fonte em mobile */
+        font-size: clamp(1.0em, 7vw, 3.8em);
+        /* Ajuste para mobile */
     }
+
+
+    .hero-content {
+        width: 80%;
+        text-align: center;
+    }
+
+
 
     .hero-subtitle {
-        font-size: 1.2em; /* Reduz tamanho da fonte em mobile */
+        font-size: 1.2em;
+        /* Reduz tamanho da fonte em mobile */
+    }
+
+
+
+    .section-title,
+    .about-title {
+        font-size: clamp(2em, 7vw, 2.5em);
+    }
+
+    .about-section,
+    .presenters-section,
+    .episodes-section {
+        padding: 20px 70px;
+    }
+
+    .presenter-description {
+        padding: 0;
+    }
+
+    .presenter-card {
+        padding: 0;
+    }
+
+    .about-text,
+    .presenter-description {
+        font-size: 1em;
     }
 
     .presenters-content {
-        padding-top: 30px; /* Ajusta o padding em telas menores */
-        padding-bottom: 50px;
+        padding: 30px 0 50px 0;
     }
 
     .presenters-grid {
-        padding-top: 30px; /* Ajusta o padding superior do grid em telas menores */
+        padding-top: 0;
+        gap: 50px;
     }
 
-
     .about-content-wrapper {
-        flex-direction: column; /* Empilha em telas menores */
+        flex-direction: column;
+        /* Empilha em telas menores */
         align-items: center;
         text-align: center;
+        gap: 0;
     }
 
     .about-title-container {
         text-align: center;
-        min-width: auto; /* Remove min-width para mobile */
+        min-width: auto;
+        /* Remove min-width para mobile */
     }
 
     .presenter-card,
     .video-item,
     .benefit-item {
-        flex: 1 1 100%; /* Ocupa 100% da largura em telas menores, empilhando-os */
+        flex: 1 1 100%;
     }
 
     .newsletter-form {
-        flex-direction: column; /* Empilha input e botão em telas menores */
+        flex-direction: column;
+        /* Empilha input e botão em telas menores */
         gap: 10px;
     }
 
     .email-input,
     .subscribe-button {
-        width: 100%; /* Ocupam 100% da largura em telas menores */
+        width: 100%;
+        /* Ocupam 100% da largura em telas menores */
         max-width: none;
     }
 
     .benefits-grid {
-        grid-template-columns: 1fr; /* Uma coluna em telas menores */
+        grid-template-columns: 1fr;
+        /* Uma coluna em telas menores */
     }
 
     /* Ajuste para o footer em telas menores */
     .main-footer {
         height: auto;
-        min-height: 110px;
         padding: 20px;
+        font-size: 0.8em;
     }
 
-        .benefits-section {
-        flex-direction: column; /* Empilha em mobile */
-        min-width: auto; /* Remove largura mínima fixa para mobile */
-        min-height: auto; /* Remove altura mínima fixa para mobile */
+    .benefits-section {
+        flex-direction: column;
+        /* Empilha em mobile */
+        min-width: auto;
+        /* Remove largura mínima fixa para mobile */
+        min-height: auto;
+        /* Remove altura mínima fixa para mobile */
     }
 
     .benefits-content-wrapper,
     .bg_newsletter {
         max-width: 100%;
-        min-height: 250px; /* Altura mínima para cada parte no mobile */
+        min-height: 250px;
+        /* Altura mínima para cada parte no mobile */
         /* Remova padding-top/bottom específicos da imagem aqui se eles não forem desejados no mobile/tablet */
-        background-position: center center; /* Centraliza a imagem no mobile/tablet */
-        background-size: contain; /* Garante que a imagem caiba no espaço */
+        background-position: center center;
+        /* Centraliza a imagem no mobile/tablet */
+        background-size: contain;
+        /* Garante que a imagem caiba no espaço */
     }
 
     .benefits-content-wrapper {
-        padding: 40px 20px;
+        padding: 40px 30px;
         align-items: center;
     }
 
@@ -942,4 +1347,143 @@ h6 {
         justify-content: center;
         align-items: center;
     }
+
+    br {
+        display: none;
+    }
+
+    .sponsors-grid {
+        gap: 10px;
+        display: flex;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        max-width: 1200px;
+        width: 100%;
+        justify-items: center;
+        align-items: center;
+    }
+
+    .sponsor-item {
+        padding: 0;
+        border-radius: 8px;
+
+    }
+
+    .video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 10px;
+        /* Ajusta as colunas para os vídeos menores.
+       minmax(250px, 1fr) permite que cada vídeo tenha no mínimo 250px
+       e ocupe o espaço disponível igualmente. Isso deve permitir 3 vídeos por linha
+       dentro de 1000px de largura (1000px / 3 = ~333px por vídeo). */
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+
+    }
+
+
+}
+
+/* Esconde o nav-menu-container em telas maiores */
+@media (min-width: 1025px) {
+
+    .hamburger-menu {
+        display: none;
+        /* Esconde o hambúrguer em desktop */
+    }
+
+    .nav-menu-container {
+        display: flex;
+        /* Mostra o container em desktop */
+        flex-direction: row;
+        /* Alinha os itens em linha */
+        align-items: center;
+    }
+
+    .nav-links {
+        display: flex;
+        /* Garante que os links de navegação apareçam */
+        flex-direction: row;
+    }
+
+    .social-links {
+        display: flex;
+        /* Garante que os links sociais apareçam */
+        flex-direction: row;
+    }
+
+    
+
+}
+
+@media (max-width: 700px) {
+
+
+    .about-section,
+    .presenters-section,
+    .episodes-section {
+        padding: 20px 40px;
+    }
+
+
+    #video-3 {
+        display: none;
+    }
+
+        .social-media-section {
+        padding: 30px;
+    }
+
+    .social-media-section .section-title {
+        font-size: 2em;
+    }
+
+    .social-icons-grid {
+        gap: 20px; /* Reduz o espaçamento em mobile */
+
+    }
+
+    .social-icon-item {
+        align-items: center;
+        text-align: center;
+        width: 60%; /* Ocupa a largura total em mobile */
+        justify-content: center; /* Centraliza o conteúdo do item */
+        padding: 12px 20px;
+    }
+
+    .social-icon-img {
+        width: 30px;
+        height: 30px;
+    }
+
+    .social-icon-text {
+        font-size: 1.2em;
+    }
+
+}
+
+
+@media (max-width: 480px) {
+
+    .cta-button {
+        font-size: 1em;
+        padding: 10px;
+        border-radius: 18px;
+        min-width: 240px;
+    }
+
+
+}
+
+@media (max-width: 380px) {
+    .hero-title {
+        font-size: clamp(1.9em, 4.5vw, 2em);
+        /* Ajuste para mobile */
+    }
+
+    .hero-content {
+        width: 90%;
+        text-align: center;
+    }
+
+
 }

@@ -1,208 +1,283 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-   <meta charset="UTF-8">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Landing Page - ImóvelCWB</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="style.css">
     <script src="svg-inject.min.js"></script>
 </head>
+
 <body>
 
-    <header id="#home" class="hero-section">
+    <header id="home" class="hero-section">
         <nav class="navbar">
             <div class="navbar-left">
-                <a class="logo">
+                <a href="#" class="logo">
                     <img src="/img/Logo_Menu.svg" alt="Logo da Sua Empresa">
                 </a>
             </div>
-            <div class="navbar-center">
-                <ul class="nav-links">
-                    <li><a href="#home">Início</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#episodios">Episódios</a></li>
-                    <li><a href="#newsletter">Newsletter</a></li>
-                    <li><a href="#apresentadores">Apresentadores</a></li>
-                </ul>
-            </div>
+
+
             <div class="navbar-right">
-                <ul class="social-links">
-                    <li><a href="https://abrir.link/sHQDp" target="_blank" aria-label="YouTube">
-                        <img src="/img/youtube.svg" onload="SVGInject(this)" /> 
-                    </a></li>
-                    <li><a href="https://abrir.link/YTYqm" target="_blank" aria-label="Spotify">
-                        <img src="/img/spotify.svg" onload="SVGInject(this)" /> 
-                    </a></li>
-                    <li><a href="" target="_blank" aria-label="TikTok">
-                        <img src="/img/tiktok.svg" onload="SVGInject(this)" /> 
-                    </a></li>
-                    <li><a href="https://abrir.link/DHmXD" target="_blank" aria-label="Instagram">
-                        <img src="/img/instagram.svg" onload="SVGInject(this)" /> 
-                    </a></li>
-                </ul>
+                <button class="hamburger-menu" aria-label="Abrir menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+                <div class="nav-menu-container">
+                    <ul class="nav-links">
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#episodios">Episódios</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                        <li><a href="#apresentadores">Apresentadores</a></li>
+                    </ul>
+
+                    <ul class="social-links">
+                        <li><a href="https://abrir.link/sHQDp" target="_blank" aria-label="YouTube">
+                                <img src="/img/youtube.svg" onload="SVGInject(this)" />
+                            </a></li>
+                        <li><a href="https://abrir.link/YTYqm" target="_blank" aria-label="Spotify">
+                                <img src="/img/spotify.svg" onload="SVGInject(this)" />
+                            </a></li>
+                        <li><a href="https://abrir.link/QjOZU" target="_blank" aria-label="Facebook">
+                                <img src="/img/facebook.svg" onload="SVGInject(this)" />
+                            </a></li>
+                        <li><a href="https://abrir.link/DHmXD" target="_blank" aria-label="Instagram">
+                                <img src="/img/instagram.svg" onload="SVGInject(this)" />
+                            </a></li>
+                    </ul>
+                </div>
             </div>
         </nav>
 
-        <div class="hero-content">
-            <h1 class="hero-title">O podcast que desvenda<br>o mercado <span class="gradient-text">imobiliário de Curitiba</span></h1>
-            <p class="hero-subtitle">Para quem compra, vende ou vive de imóveis.<br>
 
-Aqui é conteúdo real, sem enrolação.</p>
+        <div class="hero-content">
+            <h1 class="hero-title">O podcast que desvenda<br> o mercado <span class="gradient-text">imobiliário de
+                    Curitiba</span></h1>
+            <p class="hero-subtitle">Para quem compra, vende ou vive de imóveis.<br> Aqui é conteúdo real, sem
+                enrolação.</p>
             <a href="#chamada-para-acao" class="cta-button">Nosso episódio mais recente</a>
         </div>
-    </header>
 
-        <section id="sobre" class="about-section">
+    </header>
+<section id="redes-sociais" class="social-media-section">
+    <h2 class="section-title">Siga-nos em Nossos Canais</h2>
+    <div class="social-icons-grid">
+        <a href="https://abrir.link/sHQDp" target="_blank" class="social-icon-item">
+             <img src="/img/youtube.svg" alt="Ícone do YouTube" class="social-icon-img" onload="SVGInject(this)" />
+            <span class="social-icon-text">YouTube</span>
+        </a>
+        <a href="https://abrir.link/YTYqm" target="_blank" class="social-icon-item">
+            <img src="/img/spotify.svg" alt="Ícone do Spotify" class="social-icon-img" onload="SVGInject(this)" />
+            <span class="social-icon-text">Spotify</span>
+        </a>
+        <a href="https://abrir.link/DHmXD" target="_blank" class="social-icon-item">
+           <img src="/img/instagram.svg" alt="Ícone do Instagram" class="social-icon-img" onload="SVGInject(this)" /> 
+            <span class="social-icon-text">Instagram</span>
+        </a>
+    </div>
+</section>
+
+
+    <section id="newsletter" class="benefits-section">
+
+        <div class="benefits-content-wrapper">
+            <h2 class="section-title">Newsletter</h2>
+            <p class="benefits-intro-description">Receba! <br>Episódios + Insights direto na sua caixa de entrada.</p>
+            <div class="benefits-form-wrapper">
+                <input type="email" placeholder="Digite seu e-mail" class="email-input">
+                <button class="subscribe-button">
+                    QUERO RECEBER
+                    <img src="/img/seta_direita_svg.svg" alt="Seta para a direita" class="button-icon"
+                        onload="SVGInject(this)" />
+                </button>
+            </div>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <img src="/img/icon_foguete.svg" alt="Ícone de Conteúdo Exclusivo" class="benefit-icon">
+                    <h3 class="benefit-title">Dicas do mercado imobiliário</h3>
+                    <p class="benefit-description">Insights sobre bairros em valorização, tendências e oportunidades
+                        locais.</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="/img/icon_raio.svg" alt="Ícone de Notificações Prioritárias" class="benefit-icon">
+                    <h3 class="benefit-title">Episódios novos em primeira mão</h3>
+                    <p class="benefit-description">Fique por dentro dos lançamentos antes de todo mundo.</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="/img/icon_especialistas.svg" alt="Ícone de Dicas e Ferramentas" class="benefit-icon">
+                    <h3 class="benefit-title">Entrevistas com especialistas</h3>
+                    <p class="benefit-description">Corretores, arquitetos, investidores e urbanistas comentando o
+                        mercado.</p>
+                </div>
+                <div class="benefit-item">
+                    <img src="/img/icon_lampada.svg" alt="Ícone de Comunidade" class="benefit-icon">
+                    <h3 class="benefit-title">Oportunidades de imóveis em destaque</h3>
+                    <p class="benefit-description">Imóveis com bom custo-benefício, lançamentos e avaliações.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+ 
+    <section id="sobre" class="about-section">
+        <img src="/img/Violate Elipse 5.svg" class="fundo-svg-1"  onload="SVGInject(this)" />
         <div class="about-content-wrapper">
             <div class="about-title-container">
-                <h2 class="about-title">Quem<br>Somos</h2>
+                <h2 class="about-title">Quem<br> Somos</h2>
             </div>
             <div class="about-text-container">
                 <p class="about-text">
-                    Somos uma equipe apaixonada por criar soluções digitais inovadoras que transformam ideias em realidade. 
-                    Com anos de experiência no mercado, nosso foco é entregar projetos de alta qualidade que superam as expectativas 
-                    de nossos clientes. Acreditamos que a tecnologia, quando bem aplicada, pode impulsionar negócios e conectar pessoas. 
+                    Somos uma equipe apaixonada por criar soluções digitais inovadoras que transformam ideias em
+                    realidade.
+                    Com anos de experiência no mercado, nosso foco é entregar projetos de alta qualidade que superam as
+                    expectativas
+                    de nossos clientes. Acreditamos que a tecnologia, quando bem aplicada, pode impulsionar negócios e
+                    conectar pessoas.
                     Nosso compromisso é com a excelência.
                 </p>
             </div>
         </div>
     </section>
 
-<section id="apresentadores" class="presenters-section">   
-    <div class="presenters-content">
-        <h2 class="section-title">Apresentadores</h2>
-        <div class="presenters-grid">
-            <div class="presenter-card">
-                    <img src="/img/foto_ricardo.enc" alt="Foto de Leonardo" class="presenter-photo"> 
-                <h3 class="presenter-name">Leonardo</h3>
-                <p class="presenter-description">
-                    Com mais de 10 anos de experiência em [área de atuação], o Apresentador 1 é especialista em [tópico principal]. 
-                    Sua didática e carisma garantem uma experiência de aprendizado dinâmica e envolvente.
-                </p>
-            </div>
-            <div class="presenter-card">
-                  <img src="/img/foto_ricardo.enc" alt="Foto de Ricardo" class="presenter-photo"> 
-                <h3 class="presenter-name">Ricardo</h3>
-                <p class="presenter-description">
-                    Apresentador 2 é referência em [outra área], trazendo uma perspectiva inovadora e conhecimento aprofundado. 
-                    Sua paixão por [tema] se reflete em suas apresentações cativantes e cheias de insights.
-                </p>
-            </div>
-        </div>
-    </div>
-</section>
-
-    <section id="episodios" class="episodes-section">
-        <h2 class="section-title">Episódios Anteriores</h2>
-        <div class="video-grid-principal">
-            <div class="video-item-principal">
-                <iframe 
-                    src="https://www.youtube.com/embed/BM2TBj40ugc" 
-                    title="YouTube video player 1" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>
-                <h3 class="video-title">Título do Episódio 1</h3>
-            </div>
-        </div>
-            <div class="video-grid">
-            <div class="video-item">
-                <iframe
-                    src="https://www.youtube.com/embed/i1qHS5CCDCM" 
-                    title="YouTube video player 2" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>
-                <h3 class="video-title">Título do Episódio 2</h3>
-            </div>
-            <div class="video-item">
-                <iframe 
-                    src="https://www.youtube.com/embed/BM2TBj40ugc" 
-                    title="YouTube video player 3" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>
-                <h3 class="video-title">Título do Episódio 3</h3>
-            </div>
-            <div class="video-item">
-                <iframe 
-                    src="https://www.youtube.com/embed/i1qHS5CCDCM"  
-                    title="YouTube video player 4" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                </iframe>
-                <h3 class="video-title">Título do Episódio 4</h3>
+    <section id="apresentadores" class="presenters-section">
+        <div class="presenters-content">
+            <h2 class="section-title">Apresentadores</h2>
+            <div class="presenters-grid">
+                <div class="presenter-card">
+                    <img src="/img/foto_ricardo.enc" alt="Foto de Leonardo" class="presenter-photo">
+                    <h3 class="presenter-name">Leonardo</h3>
+                    <p class="presenter-description">
+                        Com mais de 10 anos de experiência em [área de atuação], o Apresentador 1 é especialista em
+                        [tópico principal].
+                        Sua didática e carisma garantem uma experiência de aprendizado dinâmica e envolvente.
+                    </p>
+                </div>
+                <div class="presenter-card">
+                    <img src="/img/foto_ricardo.enc" alt="Foto de Ricardo" class="presenter-photo">
+                    <h3 class="presenter-name">Ricardo</h3>
+                    <p class="presenter-description">
+                        Apresentador 2 é referência em [outra área], trazendo uma perspectiva inovadora e conhecimento
+                        aprofundado.
+                        Sua paixão por [tema] se reflete em suas apresentações cativantes e cheias de insights.
+                    </p>
+                </div>
             </div>
         </div>
     </section>
 
-<section id="newsletter" class="benefits-section">
-       <div class="bg_newsletter"></div> 
-    <div class="benefits-content-wrapper">
-        <h2 class="section-title">Newsletter</h2>
-        <p class="benefits-intro-description">Episódios + Insights direto na sua caixa de entrada.</p>
-        <div class="benefits-form-wrapper">
-            <input type="email" placeholder="Digite seu e-mail" class="email-input">
-            <button class="subscribe-button">
-                QUERO RECEBER
-                <img src="/img/seta_direita_svg.svg" alt="Seta para a direita" class="button-icon" onload="SVGInject(this)" />
-            </button>
-        </div>
-        <div class="benefits-grid">
-            <div class="benefit-item">
-                <img src="/img/icon_foguete.svg" alt="Ícone de Conteúdo Exclusivo" class="benefit-icon">
-                <h3 class="benefit-title">Dicas do mercado imobiliário</h3>
-                <p class="benefit-description">Insights sobre bairros em valorização, tendências e oportunidades locais.</p>
-            </div>
-            <div class="benefit-item">
-                <img src="/img/icon_raio.svg" alt="Ícone de Notificações Prioritárias" class="benefit-icon">
-                <h3 class="benefit-title">Episódios novos em primeira mão</h3>
-                <p class="benefit-description">Fique por dentro dos lançamentos antes de todo mundo.</p>
-            </div>
-            <div class="benefit-item">
-                <img src="/img/icon_especialistas.svg" alt="Ícone de Dicas e Ferramentas" class="benefit-icon">
-                <h3 class="benefit-title">Entrevistas com especialistas</h3>
-                <p class="benefit-description">Corretores, arquitetos, investidores e urbanistas comentando o mercado.</p>
-            </div>
-            <div class="benefit-item">
-                <img src="/img/icon_lampada.svg" alt="Ícone de Comunidade" class="benefit-icon">
-                <h3 class="benefit-title">Oportunidades de imóveis em destaque</h3>
-                <p class="benefit-description">Imóveis com bom custo-benefício, lançamentos e avaliações.</p>
+    <section id="episodios" class="episodes-section">
+         <img class="fundo-svg-2"  src="/img/Violate Elipse 6.svg"  onload="SVGInject(this)" />
+        <h2 class="section-title">Episódios Anteriores</h2>
+        <div class="video-grid-principal">
+            <div class="video-item-principal">
+                <iframe src="https://www.youtube.com/embed/BM2TBj40ugc" title="YouTube video player 1" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+                <!-- <h3 class="video-title">Título do Episódio 1</h3> -->
             </div>
         </div>
-    </div>
-</section>
+        <div class="video-grid">
+            <div id="video-1" class="video-item">
+                <iframe src="https://www.youtube.com/embed/i1qHS5CCDCM" title="YouTube video player 2" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+                <!-- <h3 class="video-title">Título do Episódio 1</h3> -->
+            </div>
+            <div id="video-2" class="video-item " >
+                <iframe src="https://www.youtube.com/embed/BM2TBj40ugc" title="YouTube video player 3" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
+                <!-- <h3 class="video-title">Título do Episódio 1</h3> -->
+            </div>
+            <div id="video-3" class="video-item">
+                <iframe src="https://www.youtube.com/embed/i1qHS5CCDCM" title="YouTube video player 4" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" allowfullscreen>
+                </iframe>
 
-<!-- Nova Seção de Patrocinadores -->
-<section id="patrocinadores" class="sponsors-section">
-    <h2 class="section-title">Patrocinadores</h2>
-    <div class="sponsors-grid">
-        <div class="sponsor-item">
-            <img src="/img/logo_apex.png" alt="Logo Patrocinador 1" class="sponsor-logo">
+                <!-- <h3 class="video-title">Título do Episódio 1</h3> -->
+            </div>
         </div>
-        <div class="sponsor-item">
-            <img src="/img/logo_exon.png" alt="Logo Patrocinador 2" class="sponsor-logo">
-        </div>
-        <div class="sponsor-item">
-            <img src="/img/logo_axxe.png" alt="Logo Patrocinador 3" class="sponsor-logo">
-        </div>
-    </div>
-</section>
+    </section>
 
-        <footer class="main-footer">
-        <p>Todos os direitos reservados &copy; ImóvelCWB | PODCAST</p>
+    <!-- Nova Seção de Patrocinadores -->
+    <section id="patrocinadores" class="sponsors-section">
+        <h2 class="section-title">Patrocinadores</h2>
+        <div class="sponsors-grid">
+            <div class="sponsor-item">
+                <a href="https://abrir.link/tKREo">
+                <img src="/img/logo_apex.png" alt="Logo Patrocinador 1" class="sponsor-logo"></a>
+            </div>
+            <div class="sponsor-item">
+                <a href="https://abrir.link/UiUsp">
+                <img src="/img/logo_exon.png" alt="Logo Patrocinador 2" class="sponsor-logo"></a>
+            </div>
+            <div class="sponsor-item">
+                <a href=""></a>
+                <img src="/img/logo_axxe.png" alt="Logo Patrocinador 3" class="sponsor-logo"></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="main-footer">
+        <p>Todos os direitos reservados &copy; ImóvelCWB PODCAST</p>
     </footer>
 
-    </body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const hamburgerMenu = document.querySelector('.hamburger-menu');
+            const navMenuContainer = document.querySelector('.nav-menu-container');
+            const navLinks = document.querySelectorAll('.nav-links a, .social-links a'); // Inclui links sociais para fechar o menu
+
+            hamburgerMenu.addEventListener('click', function () {
+                navMenuContainer.classList.toggle('active');
+                hamburgerMenu.classList.toggle('active');
+            });
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (navMenuContainer.classList.contains('active')) {
+                        navMenuContainer.classList.remove('active');
+                        hamburgerMenu.classList.remove('active');
+                    }
+                });
+            });
+
+            // Rolagem suave para links de navegação
+            const allNavLinks = document.querySelectorAll('.nav-links a');
+            const navbar = document.querySelector('.navbar');
+            const headerHeight = navbar ? navbar.offsetHeight : 0;
+
+            allNavLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+
+                    if (targetSection) {
+                        const targetPosition = targetSection.getBoundingClientRect().top + window.pageYOffset - headerHeight;
+
+                        window.scrollTo({
+                            top: targetPosition,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
 </html>
