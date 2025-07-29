@@ -52,7 +52,7 @@ ol {
     /* Variáveis do Header e Footer */
     --header-bg-color: #D9D9D9;
     /* Cor de fundo específica para o header e footer */
-    --header-height: 110px;
+    --header-height: 80px;
     /* Altura fixa para o header */
 
     /* Variável para o Gradiente Linear - ATUALIZADA */
@@ -112,15 +112,17 @@ h6 {
 /* Estilo para Títulos de Seção */
 .section-title {
     text-align: center;
-    font-size: 2.8em;
+    font-size: 1.8em;
     margin-bottom: 30px;
     /* Mantido para separar do conteúdo caso não se ajuste perfeitamente */
     color: var(--text-color-light);
     /* Títulos de seção claros por padrão */
+
 }
 
 .cta-button {
-    display: inline-block;
+        display: none;
+    /*display: inline-block;  */
     background-image: var(--primary-gradient);
     background-color: var(--primary-color-fallback);
     color: white;
@@ -158,31 +160,28 @@ h6 {
     font-size: 1.5em;
     line-height: 1.5;
     margin-bottom: 40px;
-    max-width: 800px;
+    max-width: auto;
     margin-left: auto;
     margin-right: auto;
     font-weight: 200;
     color: var(--text-color-light);
+
 }
 
 .hero-section {
-    padding: 80px 80px;
+    padding: 50px 120px 0 120px;
     text-align: center;
-    background: url('/img/Microfone_Fundo_Principal.jpg') no-repeat center center/cover;
-    /* Imagem de fundo responsiva */
-    min-height: calc(60vh - var(--header-height));
-    /* Ocupa a altura restante da tela */
+    background: url('/img/Microfone_Fundo_Principal.jpg') no-repeat center top;
+    background-size: cover;
+    background-position: center 30%; /* <-- move a imagem 20px para baixo */
+    min-height: calc(50vh - var(--header-height));
     display: flex;
-    /* Para centralizar o conteúdo da hero section */
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     position: relative;
-    /* ESSENCIAL para os pseudo-elementos */
     color: white;
-    /* Garante que o texto inicial seja visível sobre o gradiente/imagem */
     overflow: hidden;
-    /* Garante que nada transborde */
     z-index: 2;
 }
 
@@ -245,6 +244,8 @@ h6 {
     margin-right: auto;
 }
 
+
+
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -260,6 +261,7 @@ h6 {
     /* Ancorado no topo */
     left: 0;
     /* Ancorado à esquerda */
+    height: 80px;
     width: 100%;
     /* Ocupa a largura total */
     z-index: 1000;
@@ -269,7 +271,7 @@ h6 {
 }
 
 .logo img {
-    height: auto;
+    height: 90px;
     /* Ajuste o tamanho do logo para se adequar aos 110px de altura do header */
     width: auto;
     /* Mantém a proporção */
@@ -359,11 +361,11 @@ h6 {
     vertical-align: middle;
 }
 
-        .social-links svg {
-        width: 30px;
-        height: 30px;
-        /* Remove margem vertical extra */
-    }
+.social-links svg {
+    width: 30px;
+    height: 30px;
+    /* Remove margem vertical extra */
+}
 
 /* --- Botão Hambúrguer (Inicialmente oculto para desktop) --- */
 .hamburger-menu {
@@ -405,7 +407,7 @@ h6 {
 /* --- Seção Quem Somos --- */
 .about-section {
     min-height: auto;
-    padding: 100px 70px 20px 70px;
+    padding: 20px 70px;
     color: var(--text-color-light);
 
 }
@@ -415,46 +417,52 @@ h6 {
     justify-content: center;
     align-items: flex-start;
     /* Alinha no topo, pois o texto pode ter alturas diferentes */
-    gap: 40px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .about-title-container {
+    padding: 0;
+    display: flex;
     flex: 1;
     min-width: 250px;
-    text-align: right;
+    text-align: center;
+    align-items: center;
+    justify-content: center;
+
 }
 
 .about-title {
-    font-size: 4.3em;
+    font-size: 3em;
     color: var(--text-color-light);
     line-height: 1.2;
     width: fit-content;
+    justify-content: center;
+
     /* Permite que o h2 se ajuste ao conteúdo */
-    margin: 0 auto;
+
     /* Centraliza o bloco h2 na div pai */
-    text-align: left;
     /* Alinha o texto dentro do h2 à esquerda */
-    margin-bottom: 30px;
     font-weight: 600;
+
 }
 
 .about-text-container {
     flex: 2;
     font-weight: 200;
     text-align: justify;
+    padding-right: 50px;
 }
 
 .about-text {
-    font-size: 1.5em;
-    line-height: 1.5;
+    font-size: 1.3em;
+    line-height: 1.2;
     color: var(--text-color-light);
 }
 
 /* --- Seção Apresentadores --- */
 .presenters-section {
-    padding: 80px 20px;
+    padding: 40px 20px;
     position: relative;
     overflow: hidden;
     z-index: 1;
@@ -494,9 +502,9 @@ h6 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 120px;
+    gap: 100px;
     max-width: 1200px;
-    margin: auto auto 0;
+    margin: auto 0;
     /* Empurra para o final do container flex e centraliza horizontalmente */
 
 }
@@ -506,7 +514,6 @@ h6 {
     flex-direction: column;
     align-items: center;
     flex: 1 1 300px;
-    padding: 30px;
     text-align: center;
     color: var(--text-color-light);
 }
@@ -530,16 +537,15 @@ h6 {
 
 .presenter-description {
     text-align: justify;
-    font-size: 1.5em;
-    line-height: 1.5;
     font-weight: 200;
-
+    font-size: 1.3em;
+    line-height: 1.2;
     color: var(--text-color-light);
 }
 
 /* --- Seção Episódios Anteriores --- */
 .episodes-section {
-    padding: 80px 100px;
+    padding: 20px 100px;
     /* Fundo escuro */
     text-align: center;
     color: var(--text-color-light);
@@ -559,9 +565,9 @@ h6 {
     grid-template-columns: 1fr;
     justify-items: center;
     /* Centraliza o item na grade */
-    max-width: 900px;
+    max-width: 800px;
     /* Largura máxima para o container do vídeo principal */
-    margin: 0 auto 20px auto;
+    margin: 30px auto;
     /* Centraliza horizontalmente e adiciona margem inferior */
     padding: 0;
 
@@ -670,6 +676,12 @@ h6 {
     font-weight: 200;
 }
 
+#video-1,
+#video-2,
+#video-3 {
+    display: none;
+}
+
 /* Novo estilo para o elemento de fundo SVG */
 .fundo-svg-1 {
     position: absolute;
@@ -694,13 +706,14 @@ h6 {
     /* Garante que fique atrás do conteúdo principal */
     right: 0;
     /* Alinha o elemento totalmente à direita do pai */
-    top: 160rem;
+    top: 120rem;
     /* Centraliza verticalmente o elemento */
     transform: translateY(-50%);
     /* Ajusta a centralização vertical para ser perfeita */
-    width: 50%;
+    width: 30%;
     /* Ocupa 50% da largura do contêiner pai */
     height: auto;
+    
     /* Mantém a proporção da imagem SVG */
     /* Removido margin-top: 0; pois top/transform já gerenciam a posição vertical */
 }
@@ -822,7 +835,7 @@ h6 {
     /* Ocupa metade do espaço disponível */
     max-width: 100%;
     /* Garante 50% da largura em desktop */
-    padding: 80px 120px;
+    padding: 40px 120px;
     /* Padding interno para o conteúdo */
     box-sizing: border-box;
     z-index: 1;
@@ -941,28 +954,30 @@ h6 {
 
 
 .sponsors-section {
-    background-color: #070707;
-    padding: 30px;
+    padding: 10px 0 30px 0;
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
-
+ 
 }
 
-.sponsors-section .section-title {
-    margin-bottom: 30px;
-
-}
 
 .sponsors-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    gap: 70px;
+    grid-auto-flow: column;
+    /* elementos em linha */
+    grid-auto-columns: max-content;
+    /* só o necessário para cada item */
+    justify-content: center;
+    /* centraliza tudo */
+    align-items: center;
+    column-gap: 40px;
+    /* espaçamento só entre colunas */
     max-width: 1200px;
     width: 100%;
-    justify-content: space-between;
-    align-items: center;
+    margin: 0 auto;
+    padding: 0 20px;
 }
 
 .sponsor-item {
@@ -972,15 +987,17 @@ h6 {
     /* centraliza horizontalmente */
     align-items: center;
     /* centraliza verticalmente */
+    width: auto;
 }
 
-
 .sponsor-logo {
-    max-width: 100%;
+    width: 100%;              /* Ocupa 100% do espaço disponível */
+    max-width: 250px;         /* Nunca ultrapassa 400px */
     height: auto;
     border-radius: 15px;
     transition: transform 0.3s ease;
-    /* Transição para o zoom e filtro */
+    display: block;           /* Evita espaçamento indesejado se for inline */
+    margin: 0 auto;           /* Centraliza a imagem se possível */
 }
 
 .sponsor-logo:hover {
@@ -992,13 +1009,14 @@ h6 {
 }
 
 .social-media-section {
-    padding: 80px 30px;
+    padding: 40px 30px;
     text-align: center;
 }
 
 .social-media-section .section-title {
     margin-bottom: 50px;
 }
+
 
 .social-icons-grid {
     display: flex;
@@ -1007,14 +1025,17 @@ h6 {
     /* Permite que os ícones quebrem linha em telas menores */
     gap: 40px;
     /* Espaçamento entre os ícones */
-    max-width: 900px;
+    width: 100%;
     margin: 0 auto;
 }
 
 .social-icon-item {
     display: flex;
     align-items: center;
+    text-align: center;
+    justify-content: center;
     gap: 15px;
+    min-width: 250px;
     /* Espaçamento entre o ícone e o texto */
     background-color: rgba(255, 255, 255, 0.1);
     /* Fundo semi-transparente */
@@ -1025,6 +1046,7 @@ h6 {
     color: var(--text-color-light);
     /* Cor do texto do link */
 }
+
 
 .social-icon-item:hover {
     transform: translateY(-5px);
@@ -1048,34 +1070,51 @@ h6 {
 
 /* Estilos para o Botão Flutuante do WhatsApp */
 .whatsapp-float {
-    position: fixed; /* Fixa o botão na tela */
-    width: 60px; /* Largura do botão */
-    height: 60px; /* Altura do botão */
-    bottom: 40px; /* Distância do fundo da tela */
-    right: 40px; /* Distância da direita da tela */
-    background-color: #25D366; /* Cor de fundo verde do WhatsApp */
-    color: #FFF; /* Cor do ícone (branco) */
-    border-radius: 50%; /* Torna o botão circular */
+    position: fixed;
+    /* Fixa o botão na tela */
+    width: 60px;
+    /* Largura do botão */
+    height: 60px;
+    /* Altura do botão */
+    bottom: 40px;
+    /* Distância do fundo da tela */
+    right: 40px;
+    /* Distância da direita da tela */
+    background-color: #25D366;
+    /* Cor de fundo verde do WhatsApp */
+    color: #FFF;
+    /* Cor do ícone (branco) */
+    border-radius: 50%;
+    /* Torna o botão circular */
     text-align: center;
     font-size: 30px;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4); /* Sombra para destacar */
-    z-index: 1000; /* Garante que o botão fique acima de outros elementos */
-    display: flex; /* Para centralizar o ícone */
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+    /* Sombra para destacar */
+    z-index: 1000;
+    /* Garante que o botão fique acima de outros elementos */
+    display: flex;
+    /* Para centralizar o ícone */
     justify-content: center;
     align-items: center;
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Transição suave para hover */
-    animation: pulse 2s infinite ease-in-out; /* Adiciona a animação de pulsação */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    /* Transição suave para hover */
+    animation: pulse 2s infinite ease-in-out;
+    /* Adiciona a animação de pulsação */
 }
 
 .whatsapp-float:hover {
-    transform: scale(1.1); /* Aumenta ligeiramente no hover */
-    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6); /* Sombra mais intensa no hover */
+    transform: scale(1.1);
+    /* Aumenta ligeiramente no hover */
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
+    /* Sombra mais intensa no hover */
 }
 
 .whatsapp-icon {
-    width: 35px; /* Tamanho do ícone dentro do botão */
+    width: 35px;
+    /* Tamanho do ícone dentro do botão */
     height: 35px;
-    vertical-align: middle; /* Alinha verticalmente a imagem */
+    vertical-align: middle;
+    /* Alinha verticalmente a imagem */
 }
 
 /* Animação de pulsação */
@@ -1084,10 +1123,14 @@ h6 {
         transform: scale(1);
         box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
     }
+
     50% {
-        transform: scale(1.08); /* Aumenta ligeiramente o tamanho */
-        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6); /* Aumenta a sombra */
+        transform: scale(1.08);
+        /* Aumenta ligeiramente o tamanho */
+        box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
+        /* Aumenta a sombra */
     }
+
     100% {
         transform: scale(1);
         box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
@@ -1096,9 +1139,9 @@ h6 {
 
 /* --- Footer --- */
 .main-footer {
-    background-color: var(--bg-dark);
+    border-top: 1px solid rgba(43, 43, 43, 0.95);;
     /* Mesma cor do header */
-    height: 100px;
+    height: 50px;
     /* Altura fixa do footer */
     display: flex;
     /* Usar flexbox para centralizar o conteúdo */
@@ -1108,22 +1151,30 @@ h6 {
     /* Centraliza verticalmente */
     text-align: center;
     /* Garante que o texto dentro do 'p' também seja centralizado */
-    color: var(--t);
+    color: rgba(110, 110, 110, 0.95);
     /* Cor do texto escuro */
     font-size: 1em;
-    padding: 0 20px;
+    padding: 0 ;
     /* Adiciona padding lateral */
 }
 
 .main-footer p {
     margin: 0;
     /* Remove margem padrão do parágrafo */
+    
 }
 
 @media (max-width: 1140px) {
     .social-links {
         gap: 0;
     }
+    
+    .logo img {
+    height: 80px;
+}   
+.navbar {
+    padding: 0 40px 0 10px;
+}
 }
 
 
@@ -1190,10 +1241,6 @@ h6 {
         /* Adiciona scroll se o conteúdo for muito longo */
     }
 
-    .hero-section {
-        padding: 80px 20px;
-    }
-
     .nav-menu-container.active {
         right: 0;
         /* Desliza o menu para dentro da tela */
@@ -1211,7 +1258,7 @@ h6 {
 
     .nav-links li {
 
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
 
@@ -1250,7 +1297,7 @@ h6 {
         /* Remove margem vertical extra */
     }
 
-        .social-links svg {
+    .social-links svg {
         width: 30px;
         height: 30px;
         /* Remove margem vertical extra */
@@ -1289,11 +1336,13 @@ h6 {
         /* Reduz tamanho da fonte em mobile */
     }
 
+    .hero-section {
+        padding: 50px 0 0 0;
+    }
 
 
-    .section-title,
     .about-title {
-        font-size: clamp(2em, 7vw, 2.5em);
+       font-size: 1.8em;
     }
 
     .about-section,
@@ -1335,6 +1384,7 @@ h6 {
     .about-title-container {
         text-align: center;
         min-width: auto;
+        margin-bottom: 20px;
         /* Remove min-width para mobile */
     }
 
@@ -1365,7 +1415,7 @@ h6 {
     /* Ajuste para o footer em telas menores */
     .main-footer {
         height: auto;
-        padding: 20px;
+        padding: 10px;
         font-size: 0.8em;
     }
 
@@ -1404,12 +1454,16 @@ h6 {
         align-items: center;
     }
 
+    .about-text-container {
+        padding-right: 0;
+    }
+
     br {
         display: none;
     }
 
     .sponsors-grid {
-        gap: 10px;
+
         display: flex;
         grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         max-width: 1200px;
@@ -1485,9 +1539,7 @@ h6 {
         padding: 30px;
     }
 
-    .social-media-section .section-title {
-        font-size: 2em;
-    }
+ 
 
     .social-icons-grid {
         gap: 20px;
@@ -1515,15 +1567,18 @@ h6 {
     }
 
     .whatsapp-float {
-        width: 50px; /* Reduz o tamanho do botão em telas menores */
+        width: 50px;
+        /* Reduz o tamanho do botão em telas menores */
         height: 50px;
-        bottom: 20px; /* Ajusta a posição em telas menores */
+        bottom: 20px;
+        /* Ajusta a posição em telas menores */
         right: 20px;
         font-size: 24px;
     }
 
     .whatsapp-icon {
-        width: 30px; /* Reduz o tamanho do ícone em telas menores */
+        width: 30px;
+        /* Reduz o tamanho do ícone em telas menores */
         height: 30px;
     }
 
