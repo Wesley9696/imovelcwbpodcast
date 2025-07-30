@@ -993,6 +993,11 @@ h6 {
     margin: 0 auto;           /* Centraliza a imagem se possível */
 }
 
+.apex 
+{
+  max-width: 206px;
+}
+
 .sponsor-logo:hover {
 
     transform: scale(1.1);
