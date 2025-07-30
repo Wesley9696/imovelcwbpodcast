@@ -229,7 +229,6 @@ h6 {
 .hero-content {
     position: relative;
     z-index: 1;
-    text-align: left;
     max-width: 1200px;
     width: calc(100% - 40px);
     box-sizing: border-box;
@@ -239,7 +238,7 @@ h6 {
 .hero-content .hero-title,
 .hero-content .hero-subtitle,
 .hero-content .cta-button {
-    text-align: left;
+    text-align: center;
     margin-left: 0;
     margin-right: auto;
 }
@@ -545,7 +544,7 @@ h6 {
 
 /* --- Seção Episódios Anteriores --- */
 .episodes-section {
-    padding: 20px 100px;
+    padding: 0 100px 20px 100px;
     /* Fundo escuro */
     text-align: center;
     color: var(--text-color-light);
@@ -565,7 +564,7 @@ h6 {
     grid-template-columns: 1fr;
     justify-items: center;
     /* Centraliza o item na grade */
-    max-width: 800px;
+    max-width: 600px;
     /* Largura máxima para o container do vídeo principal */
     margin: 30px auto;
     /* Centraliza horizontalmente e adiciona margem inferior */
@@ -592,14 +591,14 @@ h6 {
 .video-grid-principal:hover {
     box-shadow: 0 0 15px var(--primary-color-fallback);
     /* Efeito de box-shadow no hover */
-    background-color: rgba(255, 0, 0, 0.473);
+    background-color: rgb(255, 0, 0);
     border-radius: 16px;
 }
 
 .video-item:hover {
     box-shadow: 0 0 10px var(--primary-color-fallback);
     /* Efeito de box-shadow no hover */
-    background-color: rgba(255, 0, 0, 0.473);
+    background-color: rgb(255, 0, 0);
     border-radius: 10px;
 }
 
