@@ -80,6 +80,7 @@ body {
     box-sizing: border-box;
     padding-top: var(--header-height);
     min-width: 320px;
+    
 }
 
 h1,
@@ -539,6 +540,7 @@ h6 {
 
 /* --- Seção Episódios Anteriores --- */
 .episodes-section {
+    
     padding: 0 100px 20px 100px;
     /* Fundo escuro */
     text-align: center;
@@ -684,13 +686,12 @@ h6 {
     /* Garante que fique atrás do conteúdo principal */
     left: -100px;
     /* Alinha o elemento totalmente à direita do pai */
-    top: 100rem;
+    top: 80rem;
     /* Ajustado para mover o elemento mais para baixo */
     transform: translateY(-50%);
     /* Ajusta a centralização vertical para ser perfeita */
-    width: 50%;
-    /* Ocupa 50% da largura do contêiner pai */
-    height: auto;
+    width: 70%;
+
 }
 
 .fundo-svg-2 {
@@ -704,12 +705,9 @@ h6 {
     /* Centraliza verticalmente o elemento */
     transform: translateY(-50%);
     /* Ajusta a centralização vertical para ser perfeita */
-    width: 30%;
+    width: 70%;
     /* Ocupa 50% da largura do contêiner pai */
-    height: auto;
-    
-    /* Mantém a proporção da imagem SVG */
-    /* Removido margin-top: 0; pois top/transform já gerenciam a posição vertical */
+
 }
 
 
@@ -1486,6 +1484,29 @@ h6 {
 
     }
 
+        /* Novo estilo para o elemento de fundo SVG */
+.fundo-svg-1 {
+
+    left: -100px;
+    /* Alinha o elemento totalmente à direita do pai */
+    top: 100rem;
+    /* Ajustado para mover o elemento mais para baixo */
+    transform: translateY(-50%);
+    /* Ajusta a centralização vertical para ser perfeita */
+    width: 80%;
+}
+
+.fundo-svg-2 {
+    right: 0;
+    /* Alinha o elemento totalmente à direita do pai */
+    margin-top: 65.625rem;
+    /* Centraliza verticalmente o elemento */
+    transform: translateY(-50%);
+    /* Ajusta a centralização vertical para ser perfeita */
+    width: 80%;
+
+}
+
 
 }
 
@@ -1533,6 +1554,7 @@ h6 {
     .episodes-section {
         padding: 20px 40px;
     }
+
 
 
     #video-3 {
@@ -1586,6 +1608,11 @@ h6 {
         height: 30px;
     }
 
+
+
+
+
+
 }
 
 
@@ -1606,18 +1633,21 @@ h6 {
         padding: 0 40px;
     }
 
-
-
+    .fundo-svg-2 {
+        right: -40px;
 }
 
-@media (max-width: 380px) {
+    .fundo-svg-1 {
+        left: -40px;
+}
 
-    
+
+@media (max-width: 380px) {
 
     .hero-content {
         width: 90%;
         text-align: center;
     }
 
-
+}
 }
