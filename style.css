@@ -113,6 +113,7 @@ h6 {
 .section-title {
     text-align: center;
     font-size: 1.8em;
+    margin-top: 10px;
     margin-bottom: 30px;
     /* Mantido para separar do conteúdo caso não se ajuste perfeitamente */
     color: var(--text-color-light);
@@ -121,29 +122,23 @@ h6 {
 }
 
 .cta-button {
-        display: none;
-    /*display: inline-block;  */
     background-image: var(--primary-gradient);
     background-color: var(--primary-color-fallback);
     color: white;
-    padding: 15px 25px;
+    padding: 10px 50px;
     border: none;
-    border-radius: 24px;
-    font-size: 1.4em;
+    border-radius: 15px;
+    font-size: 1em;
     cursor: pointer;
     font-weight: 500;
-    background-size: 200% auto;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
 }
 
 .cta-button:hover {
+    transform: scale(1.05); /* Amplia o botão em 5% */
     box-shadow: 0 0 15px var(--primary-color-fallback);
     background-color: rgba(255, 0, 0, 0.473);
-    transform: scale(1.1);
-    /* Efeito de zoom de 10% */
 }
-
-
 
 
 /* --- Header / Hero Section --- */
@@ -174,7 +169,7 @@ h6 {
     background: url('/img/Microfone_Fundo_Principal.jpg') no-repeat center top;
     background-size: cover;
     background-position: center 30%; /* <-- move a imagem 20px para baixo */
-    min-height: calc(50vh - var(--header-height));
+    min-height: calc(45vh - var(--header-height));
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -270,7 +265,7 @@ h6 {
 }
 
 .logo img {
-    height: 90px;
+    height: 85px;
     /* Ajuste o tamanho do logo para se adequar aos 110px de altura do header */
     width: auto;
     /* Mantém a proporção */
@@ -775,9 +770,7 @@ h6 {
     align-items: center;
     justify-content: center;
     background-image: var(--primary-gradient);
-
     background-color: var(--primary-color-fallback);
-
     color: rgb(255, 255, 255);
     padding: 15px 30px;
     border: none;
@@ -785,13 +778,14 @@ h6 {
     font-size: 1.1em;
     font-weight: 500;
     cursor: pointer;
-    transition: transform 0.3s ease;
-    /* Transição para o zoom e filtro */
+    transition: transform 0.1s ease;
+    font-family: var(--font-primary);
 }
+
 
 .subscribe-button:hover {
 
-    box-shadow: 0 0 15px var(--primary-color-fallback);
+    box-shadow: 0 0 10px var(--primary-color-fallback);
     /* Efeito de box-shadow no hover */
     background-color: rgba(255, 0, 0, 0.473);
     transform: scale(1.1);
@@ -1169,10 +1163,10 @@ h6 {
     }
     
     .logo img {
-    height: 80px;
+    height: 70px;
 }   
 .navbar {
-    padding: 0 40px 0 10px;
+    padding: 0 10px 0 10px;
 }
 }
 
@@ -1593,14 +1587,21 @@ h6 {
         min-width: 240px;
     }
 
+        .hero-title {
+        font-size: clamp(1.8em, 4.5vw, 2em);
+        /* Ajuste para mobile */
+    }
+        .episodes-section {
+        padding: 0 40px;
+    }
+
+
 
 }
 
 @media (max-width: 380px) {
-    .hero-title {
-        font-size: clamp(1.9em, 4.5vw, 2em);
-        /* Ajuste para mobile */
-    }
+
+    
 
     .hero-content {
         width: 90%;
