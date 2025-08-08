@@ -97,6 +97,7 @@ h6 {
 }
 /* Estilo para Títulos de Seção */
 .section-title {
+  border: 1px solid red;
   text-align: center;
   font-size: 1.8em;
   margin-top: 10px;
@@ -105,6 +106,9 @@ h6 {
   color: var(--text-color-light);
   /* Títulos de seção claros por padrão */
 }
+
+
+
 .cta-button {
   background-image: var(--primary-gradient);
   background-color: var(--primary-color-fallback);
@@ -463,95 +467,7 @@ h6 {
   line-height: 1.2;
   color: var(--text-color-light);
 }
-/* --- Seção Episódios Anteriores --- */
-.episodes-section {
-  padding: 0 100px 20px 100px;
-  /* Fundo escuro */
-  text-align: center;
-  color: var(--text-color-light);
-  /* Texto claro */
-}
-.episodes-section .section-title {
-  color: var(--text-color-light);
-  /* Título de seção claro */
-}
-.video-grid-principal {
-  position: relative;
-  display: grid;
-  /* Define uma única coluna para o vídeo principal e centraliza-o */
-  grid-template-columns: 1fr;
-  justify-items: center;
-  /* Centraliza o item na grade */
-  max-width: 600px;
-  /* Largura máxima para o container do vídeo principal */
-  margin: 30px auto;
-  /* Centraliza horizontalmente e adiciona margem inferior */
-  padding: 0;
-  overflow: hidden;
-}
-.video-item-principal {
-  position: relative;
-  border-radius: 16px;
-  padding: 0;
-  overflow: hidden;
-  text-align: center;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  /* Garante que o item principal ocupe a largura da sua grid (1fr) */
-}
-.video-grid-principal:hover {
-  box-shadow: 0 0 15px var(--primary-color-fallback);
-  /* Efeito de box-shadow no hover */
-  background-color: rgb(255, 0, 0);
-  border-radius: 16px;
-}
-.video-item:hover {
-  box-shadow: 0 0 10px var(--primary-color-fallback);
-  /* Efeito de box-shadow no hover */
-  background-color: rgb(255, 0, 0);
-  border-radius: 10px;
-}
-.video-item-principal iframe {
-  width: 100%;
-  /* Ocupa 100% da largura do .video-item-principal */
-  height: 100%;
-  /* Deixa a altura ser calculada automaticamente */
-  aspect-ratio: 16 / 9;
-  /* Mantém a proporção 16:9 */
-  /* Altura máxima para o iframe principal */
-  border-radius: 16px;
-}
-.video-grid {
-  position: relative;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
-  /* Espaçamento entre os vídeos menores */
-  max-width: 900px;
-  /* Alinha com a largura máxima do vídeo principal */
-  margin: auto;
-  /* Centraliza horizontalmente */
-  padding: 10px;
-  overflow: hidden;
-}
-.video-item {
-  position: relative;
-  border-radius: 16px;
-  padding: 0;
-  overflow: hidden;
-  text-align: center;
-}
-.video-item iframe {
-  width: 100%;
-  /* Ocupa 100% da largura do .video-item-principal */
-  height: 100%;
-  /* Deixa a altura ser calculada automaticamente */
-  aspect-ratio: 16 / 9;
-  /* Deixa a altura ser calculada automaticamente */
-  /* Mantém a proporção 16:9 */
-  border-radius: 16px;
-  margin-bottom: 0;
-}
+
 .video-title {
   position: absolute;
   width: 100%;
@@ -570,12 +486,107 @@ h6 {
   line-height: 1.7;
   font-weight: 200;
 }
-#video-1,
-#video-2,
-#video-3 {
-  display: none;
+
+.episodes-section {
+  padding: 40px 130px;
+  color: var(--text-color-light, #fff);
+  background-color: #111;
 }
-/* Novo estilo para o elemento de fundo SVG */
+
+.grid-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center; /* ✅ Centraliza verticalmente */
+  gap: 20px;
+  min-height: 100%; /* Garante altura suficiente */
+}
+
+.video-grid {
+  flex: 0 1 48%; /* Cada lado ocupa cerca de 48% */
+  max-width: 600px;
+  min-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.video-grid h2.section-title {
+  margin-bottom: 16px;
+  font-size: 24px;
+  color: var(--text-color-light, #fff);
+}
+
+.video-principal {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-bottom: 20px;
+}
+
+.video-principal iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 16px;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 20px;
+  margin: 8px;
+  border-radius: 8px;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background 0.3s;
+}
+
+.cta-button.primary {
+  background-color: red;
+  color: white;
+}
+
+.cta-button.secondary {
+  background-color: transparent;
+  color: white;
+  border: 2px solid white;
+}
+
+.cta-button:hover {
+  opacity: 0.85;
+}
+
+/* Estilo para o bloco de texto à esquerda */
+
+.text-block {
+  text-align: right; /* Alinha textos e títulos à direita */
+  align-items: flex-end; /* Alinha o conteúdo da coluna à direita */
+}
+
+.text-block h1 {
+  font-size: 18px;
+  text-transform: uppercase;
+  color: #ff4c4c;
+  margin-bottom: 16px;
+}
+
+.text-block p {
+  font-size: 28px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.text-block p:nth-of-type(2) {
+  font-size: 16px;
+  font-weight: normal;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
 .fundo-svg-1 {
   position: absolute;
   /* Posiciona o elemento de forma absoluta em relação ao seu pai com position: relative */
@@ -596,7 +607,7 @@ h6 {
   /* Garante que fique atrás do conteúdo principal */
   right: 0;
   /* Alinha o elemento totalmente à direita do pai */
-  top: 118rem;
+  top: 110rem;
   /* Centraliza verticalmente o elemento */
   transform: translateY(-50%);
   /* Ajusta a centralização vertical para ser perfeita */
@@ -740,7 +751,7 @@ h6 {
   gap: 15px;
   max-width: 1200px;
   /* Limita a largura do formulário */
-  margin: 0 0 50px 0;
+  margin: 0 !important;
   /* Alinha à esquerda e adiciona margem inferior para o grid */
   flex-wrap: wrap;
   /* Permite quebrar em várias linhas em telas pequenas */
@@ -764,7 +775,7 @@ h6 {
   /* Mantém a largura máxima do grid */
   width: 100%;
   /* Ocupa a largura total do benefits-content-wrapper */
-  margin: 0;
+  margin: 10px 0 0 0 ;
   /* Remove margens padrão para não interferir no alinhamento */
   justify-items: flex-start;
   /* Alinha os itens individuais do grid à esquerda */
@@ -794,7 +805,7 @@ h6 {
   margin-bottom: 10px;
 }
 .benefit-description {
-  text-align: left;
+  text-align: justify;
   font-weight: 100;
   font-size: 1em;
   line-height: 1.6;
@@ -876,7 +887,7 @@ h6 {
   /* Espaçamento entre o ícone e o texto */
   background-color: rgba(255, 255, 255, 0.1);
   /* Fundo semi-transparente */
-  border-radius: 10px;
+  border-radius: 20px;
   padding: 15px 25px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -1168,10 +1179,8 @@ h6 {
     text-align: center;
     min-width: auto;
     margin-bottom: 20px;
-    /* Remove min-width para mobile */
   }
   .presenter-card,
-  .video-item,
   .benefit-item {
     flex: 1 1 100%;
   }
@@ -1190,6 +1199,16 @@ h6 {
     grid-template-columns: 1fr;
     /* Uma coluna em telas menores */
   }
+
+    .grid-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .video-grid {
+    max-width: 100%;
+  }
+}
   /* Ajuste para o footer em telas menores */
   .main-footer {
     height: auto;
@@ -1217,11 +1236,9 @@ h6 {
   }
   .benefits-content-wrapper {
     padding: 40px 30px;
-    align-items: center;
   }
   .benefits-section .section-title,
   .benefits-intro-description,
-  .benefits-form-wrapper,
   .benefits-grid {
     text-align: center;
     justify-content: center;
@@ -1245,11 +1262,7 @@ h6 {
     padding: 0;
     border-radius: 8px;
   }
-  .video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-  }
+
   /* Novo estilo para o elemento de fundo SVG */
   .fundo-svg-1 {
     left: -100px;
@@ -1269,7 +1282,7 @@ h6 {
     /* Ajusta a centralização vertical para ser perfeita */
     width: 80%;
   }
-}
+
 /* Esconde o nav-menu-container em telas maiores */
 @media (min-width: 1025px) {
   .hamburger-menu {
@@ -1302,9 +1315,6 @@ h6 {
   .presenters-section,
   .episodes-section {
     padding: 20px 40px;
-  }
-  #video-3 {
-    display: none;
   }
   .social-media-section {
     padding: 30px;
