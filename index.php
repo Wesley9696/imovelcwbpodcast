@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>ImóvelCWB Podcast</title>
+
+  <link rel="icon" type="image/png" href="/img/logo-aba.png" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <link href="style.css" rel="stylesheet" />
+  <script src="svg-inject.min.js"></script>
+</head>
+
+<body>
+  <!-- Cabeçalho -->
+  <header class="hero-section" id="home">
+    <nav class="navbar">
+      <div class="navbar-left">
+        <a class="logo" href="#home">
+          <img alt="Logo da Sua Empresa" src="/img/logo-imovelcwb-icon.png" />
+        </a>
+      </div>
+      <div class="navbar-right">
+        <button aria-label="Abrir menu" class="hamburger-menu">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div class="nav-menu-container">
+          <ul class="nav-links">
+            <li><a href="#home">Início</a></li>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#episodio">Episódio</a></li>
+            <li><a href="#newsletter">Newsletter</a></li>
+            <li><a href="#apresentadores">Apresentadores</a></li>
+          </ul>
+          <ul class="social-links">
+            <li><a aria-label="YouTube" href="https://abrir.link/sHQDp" target="_blank"><img onload="SVGInject(this)" src="/img/youtube.svg" /></a></li>
+            <li><a aria-label="Spotify" href="https://abrir.link/YTYqm" target="_blank"><img onload="SVGInject(this)" src="/img/spotify.svg" /></a></li>
+            <li><a aria-label="Facebook" href="https://www.facebook.com/profile.php?id=61577085459389" target="_blank"><img onload="SVGInject(this)" src="/img/facebook.svg" /></a></li>
+            <li><a aria-label="Instagram" href="https://abrir.link/DHmXD" target="_blank"><img onload="SVGInject(this)" src="/img/instagram.svg" /></a></li>
+            <li><a aria-label="Instagram" href="https://www.tiktok.com/@imovelcwbpodcast?is_from_webapp=1&sender_device=pc" target="_blank"><img onload="SVGInject(this)" src="/img/tiktok.svg" /></a></li>
+            <li><a aria-label="Instagram" href="https://shre.ink/xm2e" target="_blank"><img onload="SVGInject(this)" src="/img/linkedin.svg" /></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="hero-content">
+      <h1 class="hero-title">
+        O podcast que desvenda<br />
+        o mercado <span class="gradient-text">imobiliário de Curitiba</span>
+      </h1>
+      <p class="hero-subtitle">
+        Conversas reais com especialistas e bastidores que fazem a diferença. Para quem compra, vende ou vive o mundo imobiliário e quer fazer isso em alto nível. Aqui é conteúdo real, direto ao ponto.
+      </p>
+    </div>
+  </header>
+
+  <!-- Último episódio -->
+  <h2 class="section-title title-espisode"  id="episodio">Último Episódio</h2>
+  <section class="video-section">
+    <div class="video-grid">
+      <div class="video-principal">
+        <?php
+          include 'get_videos.php';
+          $videos = get_youtube_videos();
+          if (isset($videos['error'])) {
+              echo '<p>Erro: ' . $videos['error'] . '</p>';
+          } elseif (empty($videos)) {
+              echo '<p>Nenhum vídeo encontrado.</p>';
+          } else {
+              $latestVideo = $videos[0];
+              $videoUrl = 'https://www.youtube.com/embed/' . $latestVideo['videoId'] . '?rel=0';
+              echo '<div class="iframe-wrapper">';
+              echo '<iframe src="' . $videoUrl . '" title="' . htmlspecialchars($latestVideo['title']) . '" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>';
+              echo '</div>';
+              echo '<a class="cta-button primary" href="https://www.youtube.com/@imovelcwbpodcast" target="_blank">Confira mais episódios</a>';
+          }
+        ?>
+      </div>
+
+      <!-- Coluna lateral -->
+      <div class="conteudo-lateral">
+        <div class="card-lateral">
+          <div class="card-logo">
+            <img src="/img/logo_cortes.svg" alt="Logo da Sua Empresa" onload="SVGInject(this)">
+          </div>
+          <div class="card-content">
+            <h3>ACOMPANHE NOSSOS CORTES</h3>
+            <p>Assista agora aos cortes com dicas reais para quem compra, vende ou investe com estratégia.</p>
+            <a class="cta-button" href="https://www.instagram.com/imovelcwbpodcast/reels/" target="_blank">Ver Cortes</a>
+          </div>
+        </div>
+        <div class="card-lateral">
+          <div class="card-logo">
+            <img src="/img/grupo_whatsapp.svg" alt="Logo da Sua Empresa" onload="SVGInject(this)">
+          </div>
+          <div class="card-content">
+            <h3>ENTRE PARA NOSSO GRUPO</h3>
+            <p>Receba tudo do imovelcwbpodcast direto no seu WhatsApp. Conteúdo real para quem compra, vende ou investe com estratégia.</p>
+            <a class="cta-button" href="https://chat.whatsapp.com/FcyZ6zcq2M44fTeQyHfx57?mode=ac_t" target="_blank">Entrar no Grupo</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="benefits-section" id="newsletter">
+    <div class="benefits-content-wrapper">
+      <h2 class="section-title">Newsletter</h2>
+      <p class="benefits-intro-description">Receba!<br />Episódios + Insights direto na sua caixa de entrada.</p>
+      <form id="newsletter-form" method="POST" class="benefits-form-wrapper">
+        <input type="email" id="email" name="email" class="email-input" placeholder="Seu melhor e-mail" required>
+        <button class="subscribe-button" type="submit">
+          Quero receber
+          <img alt="Seta para a direita" class="button-icon" onload="SVGInject(this)" src="/img/seta_direita_svg.svg" />
+        </button>
+      </form>
+      <p id="formMessage" class="mt-4 text-sm font-medium"></p>
+
+      <div class="benefits-grid">
+        <div class="benefit-item">
+          <img alt="Ícone de Conteúdo Exclusivo" class="benefit-icon" src="/img/icon_foguete.svg" />
+          <h3 class="benefit-title">Dicas do mercado imobiliário</h3>
+          <p class="benefit-description">Orientações práticas para entender o momento certo de comprar, vender ou negociar com mais segurança.</p>
+        </div>
+        <div class="benefit-item">
+          <img alt="Ícone de Notificações Prioritárias" class="benefit-icon" src="/img/icon_raio.svg" />
+          <h3 class="benefit-title">Episódios novos em primeira mão</h3>
+          <p class="benefit-description">Acesso antecipado a novos episódios + bastidores que só vão por e-mail.</p>
+        </div>
+        <div class="benefit-item">
+          <img alt="Ícone de Dicas e Ferramentas" class="benefit-icon" src="/img/icon_especialistas.svg" />
+          <h3 class="benefit-title">Bastidores com especialistas</h3>
+          <p class="benefit-description">Conversas profundas com arquitetos, investidores e corretores que vivem o mercado por dentro.</p>
+        </div>
+        <div class="benefit-item">
+          <img alt="Ícone de Comunidade" class="benefit-icon" src="/img/icon_lampada.svg" />
+          <h3 class="benefit-title">Oportunidades fora do radar</h3>
+          <p class="benefit-description">Imóveis com alto potencial, avaliações estratégicas e movimentos que você precisa acompanhar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Patrocinadores -->
+  <section class="sponsors-section" id="patrocinadores">
+    <h2 class="section-title">Patrocinadores</h2>
+    <div class="sponsors-grid">
+      <div class="sponsor-item">
+        <a href="https://abrir.link/tKREo"><img alt="Logo Patrocinador 1" class="sponsor-logo apex" src="/img/lg_apex.png" /></a>
+      </div>
+      <div class="sponsor-item">
+        <a href=""></a>
+        <img alt="Logo Patrocinador 2" class="sponsor-logo" src="/img/lg_axxe.png" />
+      </div>
+      <div class="sponsor-item">
+        <a href="https://abrir.link/UiUsp"><img alt="Logo Patrocinador 3" class="sponsor-logo" src="/img/lg_exon.png" /></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Redes sociais -->
+  <section class="social-media-section" id="redes-sociais">
+    <h2 class="section-title left-align">Siga-nos em Nossos Canais</h2>
+    <div class="social-icons-grid">
+      <a class="social-icon-item" href="https://www.youtube.com/@imovelcwbpodcast" target="_blank"><img alt="Ícone do YouTube" class="social-icon-img" onload="SVGInject(this)" src="/img/logos_youtube-icon.svg" /><span class="social-icon-text">YouTube</span></a>
+      <a class="social-icon-item" href="https://abrir.link/YTYqm" target="_blank"><img alt="Ícone do Spotify" class="social-icon-img" onload="SVGInject(this)" src="/img/logos_spotify-icon.svg" /><span class="social-icon-text">Spotify</span></a>
+      <a class="social-icon-item" href="https://www.facebook.com/profile.php?id=61577085459389" target="_blank"><img alt="Ícone do Facebook" class="social-icon-img" onload="SVGInject(this)" src="/img/logos_facebook-icon.svg" /><span class="social-icon-text">Facebook</span></a>
+      <a class="social-icon-item" href="https://abrir.link/DHmXD" target="_blank"><img alt="Ícone do Instagram" class="social-icon-img" onload="SVGInject(this)" src="/img/logos_instagram-icon.svg" /><span class="social-icon-text">Instagram</span></a>
+      <a class="social-icon-item" href="https://www.tiktok.com/@imovelcwbpodcast?is_from_webapp=1&sender_device=pc" target="_blank"><img alt="Ícone do Tiktok" class="social-icon-img" onload="SVGInject(this)" src="/img/tiktok.svg" /><span class="social-icon-text">TikTok</span></a>
+      <a class="social-icon-item" href="https://shre.ink/xm2e" target="_blank"><img alt="Ícone do Linkdin" class="social-icon-img" onload="SVGInject(this)" src="/img/logos_linkedin-icon.svg" /><span class="social-icon-text">Linkedin</span></a>
+    </div>
+  </section>
+
+  <img class="fundo-svg-1" onload="SVGInject(this)" src="/img/Violate Elipse 5.svg" />
+
+  <!-- Sobre -->
+  <section class="about-section" id="sobre">
+    <div class="about-content-wrapper">
+      <div class="about-title- ">
+        <h2 class="about-title">Quem <br class="hide-mobile">Somos</h2>
+      </div>
+      <div class="about-text-container">
+        <p class="about-text">
+          O ImóvelCWB é um podcast feito por quem vive o mercado imobiliário de Curitiba por dentro. Aqui, a gente não fala sobre imóveis. A gente revela os bastidores das negociações, compartilha estratégias reais, antecipa movimentos do mercado e entrega informação atualizada, dita com clareza e utilidade. É mais do que conteúdo é visão de campo, em conversa direta e sem enrolação. Quem ouve, negocia mais e melhor.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <img class="fundo-svg-2" onload="SVGInject(this)" src="/img/Violate Elipse 6.svg" />
+
+  <!-- Apresentadores -->
+  <section class="presenters-section" id="apresentadores">
+    <div class="presenters-content">
+      <h2 class="section-title">Apresentadores</h2>
+      <div class="presenters-grid">
+        <div class="presenter-card">
+          <img alt="Foto de Ricardo" class="presenter-photo" src="/img/foto-ricardo.png" />
+          <h3 class="presenter-name">Ricardo Maciel</h3>
+          <p class="presenter-description">Especialista em estratégia imobiliária, sócio-diretor da Exon Imóveis e criador do podcast ImóvelCWB. Com centenas de negociações acompanhadas, atua como mentor consultivo para quem quer tomar decisões seguras no mercado comprando, vendendo ou negociando com inteligência. “No mercado, quem entende o jogo por dentro joga melhor por fora.”</p>
+        </div>
+        <div class="presenter-card">
+          <img alt="Foto de Leonardo" class="presenter-photo" src="/img/foto-leonardo.png" />
+          <h3 class="presenter-name">Leonardo Fagundes</h3>
+          <p class="presenter-description">Sócio da APEX Comunicação, agência patrocinadora do ImóvelCWB. Estrategista em comunicação corporativa, especialista em produção audiovisual e storytelling estratégico, Leonardo traz o olhar criativo e técnico que transforma cada episódio em uma experiência envolvente. “Toda boa conversa começa com uma dúvida verdadeira e termina com um insight que faz pensar.”</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato -->
+  <section class="contact-section bg-white/70 py-4">
+    <div class="max-w-7xl mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-center items-center gap-4 text-center text-base text-gray-700 font-bold">
+        <div>WhatsApp: <a href="tel:+5541984141500" class="hover:text-green-600">+55 41 98414-1500</a></div>
+        <span class="hidden md:inline">|</span>
+        <div>E-mail: <a href="mailto:contato@imovelcwbpodcast.com.br" class="hover:text-blue-600">contato@imovelcwbpodcast.com.br</a></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WhatsApp Flutuante -->
+  <a class="whatsapp-float" href="https://wa.me/5541984141500?text=Ol&aacute;!" target="_blank">
+    <img alt="Logo do WhatsApp" class="whatsapp-icon" src="/img/logos_whatsapp-icon.svg" />
+  </a>
+
+  <!-- Rodapé -->
+  <footer class="main-footer">
+    <p>Todos os direitos reservados &copy; ImóvelCWB PODCAST | <a href="termos.php" class="underline hover:text-blue-600">Termos de Uso</a></p>
+  </footer>
+
+  <script>
+    // O script de funcionalidade do menu hambúrguer e rolagem suave permanece o mesmo.
+    document.addEventListener('DOMContentLoaded', function () {
+      const hamburgerMenu = document.querySelector('.hamburger-menu');
+      const navMenuContainer = document.querySelector('.nav-menu-container');
+      const navLinks = document.querySelectorAll('.nav-links a, .social-links a');
+      if (hamburgerMenu && navMenuContainer && navLinks.length > 0) {
+        hamburgerMenu.addEventListener('click', function () {
+          navMenuContainer.classList.toggle('active');
+          hamburgerMenu.classList.toggle('active');
+        });
+        navLinks.forEach((link) => {
+          link.addEventListener('click', function () {
+            if (navMenuContainer.classList.contains('active')) {
+              navMenuContainer.classList.remove('active');
+              hamburgerMenu.classList.remove('active');
+            }
+          });
+        });
+      } else {
+        console.warn(
+          'Hamburger menu elements not found. Menu functionality may not work.'
+        );
+      }
+      const allNavLinks = document.querySelectorAll('.nav-links a');
+      const navbar = document.querySelector('.navbar');
+      const headerHeight = navbar ? navbar.offsetHeight : 0;
+      allNavLinks.forEach((link) => {
+        link.addEventListener('click', function (event) {
+          event.preventDefault();
+          const targetId = this.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          if (targetSection) {
+            const targetPosition =
+              targetSection.getBoundingClientRect().top +
+              window.pageYOffset -
+              headerHeight;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth',
+            });
+          }
+        });
+      });
+      lucide.createIcons();
+    });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('newsletter-form');
+  const emailInput = document.getElementById('email');
+  const formMessage = document.getElementById('formMessage');
+
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault();
+
+    const email = emailInput.value.trim();
+
+    if (!email) {
+      formMessage.textContent = 'Por favor, insira um e-mail válido.';
+      formMessage.style.color = '#ef4444'; // Vermelho para erro
+      return;
+    }
+
+    formMessage.textContent = 'Enviando...';
+    formMessage.style.color = '#6b7280'; // Cinza para status
+
+    try {
+      const formData = new FormData(form);
+
+      const response = await fetch('subscribe.php', {
+        method: 'POST',
+        body: formData
+      });
+
+      const data = await response.json();
+
+      // Lógica para definir a cor com base na mensagem
+      if (data.message.includes('Obrigado por se inscrever!')) {
+        formMessage.style.color = '#10b981'; // Verde para sucesso
+        emailInput.value = '';
+      } else if (data.message.includes('já está cadastrado')) {
+        formMessage.style.color = '#3b82f6'; // Azul para aviso
+      } else {
+        formMessage.style.color = '#ef4444'; // Vermelho para erro
+      }
+      
+      formMessage.textContent = data.message;
+      
+    } catch (error) {
+      console.error('Erro de conexão:', error);
+      formMessage.textContent = 'Ocorreu um erro de rede. Por favor, verifique sua conexão.';
+      formMessage.style.color = '#ef4444'; // Vermelho para erro
+    }
+  });
+});
+  </script>
+</body>
+
+</html>

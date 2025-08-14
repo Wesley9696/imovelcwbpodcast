@@ -1,0 +1,11 @@
+2025-08-11 15:47:49 - Requisição recebida:
+POST data: Array
+(
+    [email] => wesleynascimentojob@gmail.com
+)
+
+GET data: Array
+(
+)
+
+------------------------------------

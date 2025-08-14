@@ -1,0 +1,1432 @@
+/* style.css */
+/* --- 1. Reset Básico/Normalização --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+img,
+video {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+ul,
+ol {
+  list-style: none;
+}
+/* --- 2. Estilos Globais e Variáveis --- */
+:root {
+  /* Cores do Gradiente - ATUALIZADAS */
+  --gradient-start-color: red;
+  /* Vermelho vibrante */
+  --gradient-end-color: #ff4d35;
+  /* Rosa claro */
+  /* Variáveis para cores gerais */
+  --primary-color-fallback: #ff0004;
+  /* Cor sólida de fallback: Vermelho puro */
+  --secondary-color: #6c757d;
+  --text-color-light: #f0f0f0;
+  /* Para texto em fundos escuros */
+  --text-color-dark: #333;
+  /* Para texto em fundos claros */
+  --bg-dark: #101010;
+  /* Cor de fundo principal escura do body */
+  --bg-light: #f9f9f9;
+  /* Cor de fundo clara para seções específicas */
+  /* Variável para a Fonte */
+  --font-primary: 'Inter', sans-serif;
+  /* Fonte Inter para toda a página */
+  /* Variáveis do Header e Footer */
+  --header-bg-color: #D9D9D9;
+  /* Cor de fundo específica para o header e footer */
+  --header-height: 80px;
+  /* Altura fixa para o header */
+  /* Variável para o Gradiente Linear - ATUALIZADA */
+  --primary-gradient: linear-gradient(90deg, var(--gradient-start-color) 0%, var(--gradient-end-color) 60%);
+}
+html {
+  scroll-behavior: smooth;
+  /* Garante rolagem suave para links de âncora */
+  scroll-padding-top: var(--header-height);
+  /* Adiciona um preenchimento no topo igual à altura do cabeçalho fixo */
+}
+body {
+  background-color: var(--bg-dark);
+  /* Fundo escuro para o body */
+  color: var(--text-color-light);
+  /* Cor do texto padrão (claro) */
+  font-family: var(--font-primary);
+  /* Fonte Inter para todo o texto */
+  line-height: 1.6;
+  /* Altura da linha para melhor legibilidade */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  padding-top: var(--header-height);
+  min-width: 320px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-primary);
+  /* Garante que os títulos também usem Inter */
+  color: var(--text-color-light);
+  /* Cor dos títulos padrão (claro) */
+}
+
+.gradient-text {
+  /* Define o gradiente linear */
+  background: var(--primary-gradient);
+  /* Aplica o gradiente como máscara de texto */
+  -webkit-background-clip: text;
+  /* Para navegadores baseados em WebKit (Chrome, Safari) */
+  background-clip: text;
+  /* Padrão */
+  /* Torna o texto transparente para que o gradiente apareça */
+  -webkit-text-fill-color: transparent;
+  /* Para navegadores baseados em WebKit */
+  color: #FF0004;
+  /* Cor de fallback para navegadores que não suportam */
+}
+/* Estilo para Títulos de Seção */
+.section-title {
+  text-align: center;
+  font-size: 1.8em;
+  margin-top: 10px;
+  margin-bottom: 30px;
+  color: var(--text-color-light);
+  font-weight: 600;
+}
+
+.cta-button {
+  background-image: var(--primary-gradient);
+  background-color: var(--primary-color-fallback);
+  color: white;
+  padding: 10px 50px;
+  border: none;
+  border-radius: 15px;
+  font-size: 1em;
+  cursor: pointer;
+  font-weight: 500;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, background-color 0.2s ease-in-out;
+}
+.cta-button:hover {
+  transform: scale(1.05); /* Amplia o botão em 5% */
+  box-shadow: 0 0 15px var(--primary-color-fallback);
+  background-color: rgba(255, 0, 0, 0.473);
+}
+/* --- Header / Hero Section --- */
+.hero-title {
+  font-size: clamp(2.5em, 8vw, 3.9em);
+  /* Tipografia fluida */
+  line-height: 1.3;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+.hero-subtitle {
+  padding: 0  150px;
+  font-size: 1.3em;
+  line-height: 1.5;
+  margin-bottom: 40px;
+  max-width: auto;
+  margin-left: auto;
+  margin-right: auto;
+  font-weight: 200;
+  color: var(--text-color-light);
+}
+.hero-section {
+  padding: 50px 120px 0 120px;
+  text-align: center;
+  background: url('/img/Microfone_Fundo_Principal.jpg') no-repeat center top;
+  background-size: cover;
+  background-position: center 30%; /* <-- move a imagem 20px para baixo */
+  min-height: calc(45vh - var(--header-height));
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+  color: white;
+  overflow: hidden;
+  z-index: 2;
+}
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top,
+  #101010 0%,
+  /* Preto sólido na base */
+  rgba(16, 16, 16, 0.72) 25%,
+  rgba(16, 16, 16, 0.45) 55%,
+  rgba(16, 16, 16, 0.19) 80%,
+  transparent 100%
+  /* Transparente no topo */
+  );
+  z-index: -1;
+  /* Fica acima da imagem de fundo */
+}
+/* Gradiente de CIMA para BAIXO */
+.hero-section::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom,
+  #101010 0%,
+  /* Preto sólido no topo */
+  rgba(16, 16, 16, 0.72) 20%,
+  rgba(16, 16, 16, 0.45) 45%,
+  rgba(16, 16, 16, 0.19) 70%,
+  transparent 100%
+  /* Transparente na base */
+  );
+  z-index: -1;
+  /* Também fica acima da imagem de fundo */
+}
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 1200px;
+  width: calc(100% - 40px);
+  box-sizing: border-box;
+  padding: 0;
+}
+.hero-content .hero-title,
+.hero-content .hero-subtitle,
+.hero-content .cta-button {
+  text-align: center;
+  margin-left: 0;
+  margin-right: auto;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  /* Padding horizontal */
+  background-color: rgba(43, 43, 43, 0.979);
+  height: var(--header-height);
+  /* Altura fixa do header (110px) */
+  position: fixed;
+  /* Torna o header fixo na tela */
+  top: 0;
+  /* Ancorado no topo */
+  left: 0;
+  /* Ancorado à esquerda */
+  height: 80px;
+  width: 100%;
+  /* Ocupa a largura total */
+  z-index: 1000;
+  /* Garante que fique acima de outros elementos ao rolar */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  /* Sombra suave para destacar */
+}
+.logo img {
+  height: 85px;
+  /* Ajuste o tamanho do logo para se adequar aos 110px de altura do header */
+  width: auto;
+  /* Mantém a proporção */
+}
+.hero-subtitle-links {
+  display: none;
+}
+.social-links,
+.nav-links {
+  display: flex;
+  /* Mantém os links em linha (tanto para nav quanto para social) */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-links {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.nav-links li,
+.social-links li {
+  margin: 0 5px;
+}
+.nav-links a,
+.social-links a {
+  color: var(--text-color-light);
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+.nav-links a {
+  margin: 0 15px;
+}
+.nav-links a:hover,
+.social-links a:hover {
+  color: var(--primary-color-fallback);
+  /* Cor de destaque no hover (vermelho do gradiente) */
+}
+.social-links {
+  display: flex;
+  justify-content: center;
+  /* ou start/end/space-between, conforme layout */
+  gap: 10px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.social-links a {
+  display: flex;
+  /* Transforma o link em flex container para centralizar o SVG */
+  justify-content: center;
+  align-items: center;
+  width: 25px;
+  /* Largura do contêiner do ícone */
+  height: 25px;
+  /* Altura do contêiner do ícone */
+  border-radius: 50%;
+  /* Para um formato circular, se desejar */
+  transition: box-shadow 0.3s ease, background-color 0.3s ease;
+  /* Transição para a sombra e fundo */
+}
+.social-links a:hover {
+  box-shadow: 0 0 15px var(--primary-color-fallback);
+  /* Efeito de box-shadow no hover */
+  background-color: rgba(255, 0, 0, 0.473);
+  /* Um leve fundo no hover */
+}
+.social-links img {
+  /* Esta regra pode não ser mais necessária se SVGInject estiver sendo usado */
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+.social-links svg {
+  width: 30px;
+  height: 30px;
+  /* Remove margem vertical extra */
+}
+/* --- Botão Hambúrguer (Inicialmente oculto para desktop) --- */
+.hamburger-menu {
+  display: none;
+  /* Oculto por padrão em desktop */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  position: relative;
+  /* Posição relativa para o alinhamento no flexbox */
+  z-index: 1001;
+  /* Garante que fique acima dos links */
+}
+.hamburger-menu .bar {
+  display: block;
+  width: 30px;
+  height: 3px;
+  background-color: var(--text-color-light);
+  /* Barras claras para contraste com o header escuro */
+  margin: 6px 0;
+  transition: all 0.3s ease-in-out;
+}
+/* Container do menu de navegação e social (para mobile) */
+.nav-menu-container {
+  display: flex;
+  /* Por padrão, em desktop, ele é um flex container */
+  flex-direction: row;
+  /* Itens em linha em desktop */
+  align-items: center;
+  width: auto;
+  position: static;
+  background-color: transparent;
+  transition: transform 0.3s ease-in-out;
+}
+/* --- Seção Quem Somos --- */
+.about-section {
+  min-height: auto;
+  padding: 20px 70px;
+  color: var(--text-color-light);
+}
+.about-content-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  /* Alinha no topo, pois o texto pode ter alturas diferentes */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.about-title-container {
+  padding: 0;
+  display: flex;
+  flex: 1;
+  min-width: 250px;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+}
+.about-title {
+  font-size: 3em;
+  color: var(--text-color-light);
+  line-height: 1.2;
+  width: fit-content;
+  justify-content: center;
+  font-weight: 600;
+  padding: 30px;
+}
+.about-text-container {
+  flex: 2;
+  font-weight: 200;
+  text-align: justify;
+  padding: 30px;
+}
+
+.about-text {
+  font-size: 1.3em;
+  line-height: 1.2;
+  color: var(--text-color-light);
+}
+/* --- Seção Apresentadores --- */
+.presenters-section {
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+.presenters-section .section-title {
+  color: var(--text-color-light);
+  margin-top: 0;
+  /* Remove qualquer margem superior padrão do título */
+  /* Removido margin-bottom aqui, será controlado pelo flexbox do .presenters-content */
+}
+/* Estilos para o conteúdo da seção (garante que fique por cima) */
+.presenters-content {
+  position: relative;
+  z-index: 1;
+  padding-top: 0;
+  /* Mantém o título próximo ao topo */
+  padding-bottom: 0;
+  /* Padding inferior */
+  padding-left: 20px;
+  padding-right: 20px;
+  text-align: center;
+  color: var(--text-color-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 50vh;
+  justify-content: space-between;
+  /* Alinha o primeiro item ao topo e o último ao fundo */
+  align-items: center;
+  /* Centraliza horizontalmente o título e o grid */
+}
+.presenters-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 100px;
+  max-width: 1200px;
+  margin: auto 0;
+  /* Empurra para o final do container flex e centraliza horizontalmente */
+}
+.presenter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1 1 300px;
+  text-align: center;
+  color: var(--text-color-light);
+}
+.presenter-photo {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 20px auto;
+}
+.presenter-name {
+  font-size: 1.8em;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  font-weight: 200;
+}
+
+.presenter-description {
+  font-size: 1.3em;
+  font-weight: 200;
+  text-align: justify;
+  line-height: 1.2;
+}
+
+.fundo-svg-1 {
+  position: absolute;
+  /* Posiciona o elemento de forma absoluta em relação ao seu pai com position: relative */
+  z-index: -1;
+  /* Garante que fique atrás do conteúdo principal */
+  left: -100px;
+  /* Alinha o elemento totalmente à direita do pai */
+  top: 80rem;
+  /* Ajustado para mover o elemento mais para baixo */
+  transform: translateY(-50%);
+  /* Ajusta a centralização vertical para ser perfeita */
+  width: 70%;
+}
+.fundo-svg-2 {
+  position: absolute;
+  /* Posiciona o elemento de forma absoluta em relação ao seu pai com position: relative */
+  z-index: -1;
+  /* Garante que fique atrás do conteúdo principal */
+  right: 0;
+  /* Alinha o elemento totalmente à direita do pai */
+  top: 110rem;
+  /* Centraliza verticalmente o elemento */
+  transform: translateY(-50%);
+  /* Ajusta a centralização vertical para ser perfeita */
+  width: 70%;
+  /* Ocupa 50% da largura do contêiner pai */
+}
+
+.video-section {
+  padding: 20px 120px;
+  display: flex;
+  justify-content: center; 
+}
+
+.video-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem; 
+  text-align: end;
+  width: 100%; /* Ocupa a largura total do container pai */
+  max-width: 1200px; /* Limita a largura máxima do grid */
+}
+
+.video-principal {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.title-espisode {
+  margin-bottom: 0;
+}
+
+/* O "segredo" da responsividade: Wrapper que mantém a proporção de 16:9 */
+.iframe-wrapper {
+  position: relative; /* Essencial para posicionar o iframe internamente */
+  width: 100%; /* Ocupa a largura total disponível */
+  padding-top: 56.25%; /* (9 / 16) * 100% = 56.25% para manter a proporção 16:9 */
+  border-radius: 8px; /* Aplica borda arredondada ao wrapper */
+  overflow: hidden; /* Garante que o iframe siga o border-radius */
+}
+
+/* O iframe preenche todo o espaço do wrapper */
+.iframe-wrapper iframe {
+  position: absolute; /* Permite posicionamento absoluto dentro do wrapper */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0; /* Garante que não haja borda extra no iframe */
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #ff6600;
+  text-decoration: none;
+  border-radius: 16px;
+  font-weight: bold;
+  text-align: center;
+  transition: background 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: #e05500;
+}
+
+.cta-button.primary {
+  background-color: #cc0000;
+}
+
+.cta-button.primary:hover {
+  background-color: #a30000;
+}
+
+.conteudo-lateral {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%; /* ocupa toda a altura disponível */
+}
+
+.card-lateral {
+  flex: 1; 
+  border-radius: 10px;
+  padding: 20px;
+  width: 100%;
+  border: 0.5px solid rgba(24, 24, 24, 0.801);
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center; /* Centraliza a logo e o texto verticalmente */
+  gap: 20px; /* Espaçamento entre a logo e o conteúdo */
+}
+
+.card-logo {
+  height: 100%; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  /* Permite que o logo ocupe até 20% do espaço, mas não passe de 150px */
+  flex-basis: 20%;
+  max-width: 150px; 
+}
+
+.card-logo img {
+  height: 100%; /* Faz a imagem ocupar a altura total da div */
+  width: auto;
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column; 
+  gap: 12px;
+  align-items: flex-end; 
+  text-align: right; 
+  margin-left: auto;
+}
+
+.card-lateral p {
+  text-align: justify;
+  font-weight: 100;
+  font-size: 1em;
+  line-height: 1.3;
+}
+
+/* --- Seção Newsletter --- */
+.newsletter-section {
+  background-color: var(--bg-light);
+  /* Fundo claro para a newsletter */
+  padding: 80px 20px;
+  text-align: center;
+  color: var(--text-color-dark);
+  /* Texto escuro */
+}
+.newsletter-section .section-title {
+  color: var(--text-color-dark);
+  /* Título escuro */
+}
+.newsletter-description {
+  font-size: 1.3em;
+  color: var(--text-color-dark);
+  margin-top: -20px;
+  margin-bottom: 40px;
+}
+.newsletter-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  max-width: 600px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  /* Permite quebrar em várias linhas em telas pequenas */
+}
+.email-input {
+  flex-grow: 1;
+  /* Permite que o input cresça */
+  padding: 15px 20px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  font-size: 1.1em;
+  max-width: 400px;
+  /* Limita a largura máxima */
+  color: var(--text-color-dark);
+  background-color: #fff;
+}
+.button-icon {
+  margin-left: 10px;
+}
+.subscribe-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: var(--primary-gradient);
+  background-color: var(--primary-color-fallback);
+  color: rgb(255, 255, 255);
+  padding: 15px 30px;
+  border: none;
+  border-radius: 16px;
+  font-size: 1.1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: transform 0.1s ease;
+  font-family: var(--font-primary);
+}
+.subscribe-button:hover {
+  box-shadow: 0 0 10px var(--primary-color-fallback);
+  /* Efeito de box-shadow no hover */
+  background-color: rgba(255, 0, 0, 0.473);
+  transform: scale(1.1);
+  /* Efeito de zoom de 10% */
+}
+/* --- Seção Benefícios --- */
+.benefits-section {
+  padding: 0;
+  /* Remove padding da seção, aplicado aos filhos */
+  /* Fundo escuro para a seção */
+  color: var(--text-color-light);
+  display: flex;
+  /* ESSENCIAL: Transforma a seção em um contêiner flexível */
+  flex-wrap: wrap;
+  /* Permite que as colunas quebrem em linha em telas menores */
+  align-items: center;
+  /* ALINHA VERTICALMENTE OS ITENS AO CENTRO */
+  justify-content: center;
+  /* Centraliza horizontalmente o conteúdo se houver espaço extra */
+  z-index: 1;
+  width: 100%;
+  ;
+  /* Largura mínima para telas grandes */
+  height: 100%;
+  /* Altura mínima para telas grandes */
+  position: relative;
+  /* Mantido para contexto, mas menos crítico com flexbox */
+  overflow: hidden;
+}
+.benefits-content-wrapper {
+  /* Ocupa metade do espaço disponível */
+  max-width: 100%;
+  /* Garante 50% da largura em desktop */
+  padding: 40px 120px;
+  /* Padding interno para o conteúdo */
+  box-sizing: border-box;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  /* Alinha o conteúdo à esquerda */
+  justify-content: center;
+  /* Centraliza verticalmente o conteúdo */
+}
+.benefits-section .section-title {
+  color: var(--text-color-light);
+  text-align: left;
+  /* Alinha o título da seção à esquerda */
+  margin-bottom: 20px;
+  /* Espaço abaixo do título */
+}
+.benefits-intro-description {
+  /* Nova classe para a descrição introdutória */
+  font-size: 1.3em;
+  color: var(--text-color-light);
+  margin-bottom: 40px;
+  justify-content: center;
+  align-items: center;
+  /* Espaço abaixo da descrição e antes do formulário */
+  max-width: 600px;
+  /* Limita a largura da descrição */
+  margin-left: 0;
+  /* Alinha à esquerda */
+  margin-right: auto;
+  /* Empurra para a esquerda */
+}
+.benefits-form-wrapper {
+  /* Novo wrapper para o input e botão */
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  /* Alinha o formulário à esquerda */
+  align-items: center;
+  gap: 15px;
+  max-width: 1200px;
+  /* Limita a largura do formulário */
+  margin: 0 !important;
+  /* Alinha à esquerda e adiciona margem inferior para o grid */
+  flex-wrap: wrap;
+  /* Permite quebrar em várias linhas em telas pequenas */
+  z-index: 1;
+}
+.email-input {
+  flex-grow: 1;
+  padding: 15px 20px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  font-size: 1.1em;
+  max-width: 400px;
+  color: var(--text-color-dark);
+  background-color: #fff;
+}
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  /* Mantém a largura máxima do grid */
+  width: 100%;
+  /* Ocupa a largura total do benefits-content-wrapper */
+  margin: 10px 0 0 0 ;
+  /* Remove margens padrão para não interferir no alinhamento */
+  justify-items: flex-start;
+  /* Alinha os itens individuais do grid à esquerda */
+}
+.benefit-item {
+  padding: 0;
+  text-align: left;
+  /* ALTERADO: Alinha o texto e elementos inline-block à esquerda */
+  color: var(--text-color-light);
+}
+.benefit-icon {
+  width: 60px;
+  height: 60px;
+  margin: 0 0 20px 0;
+  /* ALTERADO: Remove o 'auto' para alinhar à esquerda */
+  display: block;
+  /* Garante que o ícone ocupe sua própria linha e o margin funcione */
+}
+.benefit-title {
+  text-align: left;
+  font-size: 1.2em;
+  /* Gradiente no texto do título do benefício */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-color: var(--bg-light);
+  /* Fallback */
+  margin-bottom: 10px;
+}
+.benefit-description {
+  text-align: justify;
+  font-weight: 100;
+  font-size: 1em;
+  line-height: 1.6;
+  color: var(--text-color-light);
+}
+.sponsors-section {
+  padding: 10px 0 30px 0;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.sponsors-grid {
+  display: grid;
+  grid-auto-flow: column;
+  /* elementos em linha */
+  grid-auto-columns: max-content;
+  /* só o necessário para cada item */
+  justify-content: center;
+  /* centraliza tudo */
+  align-items: center;
+  column-gap: 40px;
+  /* espaçamento só entre colunas */
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.sponsor-item {
+  display: flex;
+  /* muda para flex */
+  justify-content: center;
+  /* centraliza horizontalmente */
+  align-items: center;
+  /* centraliza verticalmente */
+  width: auto;
+}
+.sponsor-logo {
+  width: 100%;              /* Ocupa 100% do espaço disponível */
+  max-width: 250px;         /* Nunca ultrapassa 400px */
+  height: auto;
+  border-radius: 15px;
+  transition: transform 0.3s ease;
+  display: block;           /* Evita espaçamento indesejado se for inline */
+  margin: 0 auto;           /* Centraliza a imagem se possível */
+}
+.apex
+{
+  max-width: 206px;
+}
+.sponsor-logo:hover {
+  transform: scale(1.1);
+  /* Efeito de zoom de 10% */
+}
+.social-media-section {
+  padding: 40px 30px;
+  text-align: center;
+}
+.social-media-section .section-title {
+  margin-bottom: 50px;
+}
+.social-icons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas iguais */
+  gap: 20px;
+  justify-items: center; /* centraliza cada ícone dentro da célula */
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.social-icon-item {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  gap: 15px;
+  min-width: 220px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 15px 25px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: var(--text-color-light);
+}
+
+.social-icon-item:hover {
+  transform: translateY(-5px);
+  /* Efeito de "levantar" no hover */
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  background-color: rgba(255, 255, 255, 0.15);
+  /* Um pouco mais opaco no hover */
+}
+.social-icon-img {
+  width: 40px;
+  /* Tamanho do ícone */
+  height: 40px;
+  object-fit: cover;
+}
+.social-icon-text {
+  font-size: 1.5em;
+  font-weight: 500;
+}
+/* Estilos para o Botão Flutuante do WhatsApp */
+.whatsapp-float {
+  position: fixed;
+  /* Fixa o botão na tela */
+  width: 60px;
+  /* Largura do botão */
+  height: 60px;
+  /* Altura do botão */
+  bottom: 40px;
+  /* Distância do fundo da tela */
+  right: 40px;
+  /* Distância da direita da tela */
+  background-color: #25D366;
+  /* Cor de fundo verde do WhatsApp */
+  color: #FFF;
+  /* Cor do ícone (branco) */
+  border-radius: 50%;
+  /* Torna o botão circular */
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  /* Sombra para destacar */
+  z-index: 1000;
+  /* Garante que o botão fique acima de outros elementos */
+  display: flex;
+  /* Para centralizar o ícone */
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  /* Transição suave para hover */
+  animation: pulse 2s infinite ease-in-out;
+  /* Adiciona a animação de pulsação */
+}
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  /* Aumenta ligeiramente no hover */
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
+  /* Sombra mais intensa no hover */
+}
+.whatsapp-icon {
+  width: 35px;
+  /* Tamanho do ícone dentro do botão */
+  height: 35px;
+  vertical-align: middle;
+  /* Alinha verticalmente a imagem */
+}
+/* Animação de pulsação */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  }
+  50% {
+    transform: scale(1.08);
+    /* Aumenta ligeiramente o tamanho */
+    box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
+    /* Aumenta a sombra */
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.4);
+  }
+}
+/* --- Footer --- */
+.main-footer {
+  border-top: 1px solid rgba(43, 43, 43, 0.95);;
+  /* Mesma cor do header */
+  height: 50px;
+  /* Altura fixa do footer */
+  display: flex;
+  /* Usar flexbox para centralizar o conteúdo */
+  justify-content: center;
+  /* Centraliza horizontalmente */
+  align-items: center;
+  /* Centraliza verticalmente */
+  text-align: center;
+  /* Garante que o texto dentro do 'p' também seja centralizado */
+  color: rgba(110, 110, 110, 0.95);
+  /* Cor do texto escuro */
+  font-size: 1em;
+  padding: 0 ;
+  /* Adiciona padding lateral */
+}
+.main-footer p {
+  margin: 0;
+  /* Remove margem padrão do parágrafo */
+}
+@media (max-width: 1140px) {
+  .social-links {
+    gap: 0;
+  }
+  .logo img {
+    height: 70px;
+  }
+  .navbar {
+    padding: 0 10px 0 10px;
+  }
+  .hero-subtitle {
+    padding: 0;
+  }
+}
+@media (max-width: 1023px) {
+  body {
+    padding-top: 40px;
+  }
+  .navbar {
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    height: 64px;
+  }
+  .navbar-left {
+    order: 1;
+    /* Garante que a logo fique na esquerda */
+  }
+  .navbar-right {
+    order: 2;
+    /* Garante que o hambúrguer fique na direita */
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+  .hamburger-menu {
+    display: block;
+    /* Mostra o botão hambúrguer em mobile */
+    /* Removido o posicionamento absoluto, agora é parte do fluxo flex */
+  }
+  .nav-menu-container {
+    display: flex;
+    /* Torna o container flexível */
+    flex-direction: column;
+    /* Empilha os links verticalmente */
+    position: fixed;
+    /* Fixa o menu lateralmente */
+    top: 64px;
+    /* Começa abaixo do header */
+    right: -100%;
+    /* Esconde o menu fora da tela */
+    width: 70%;
+    /* Largura do menu lateral */
+    max-width: 300px;
+    /* Largura máxima para o menu lateral */
+    height: calc(100vh - 64px);
+    /* Ocupa a altura restante da tela */
+    background-color: rgba(43, 43, 43, 0.95);
+    /* Fundo escuro semi-transparente */
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    /* Sombra para destacar */
+    padding: 0 20px 20px 20px;
+    transition: right 0.3s ease-in-out;
+    /* Transição para o slide-in/out */
+    z-index: 999;
+    /* Abaixo do hambúrguer, mas acima do conteúdo */
+    overflow-y: auto;
+    /* Adiciona scroll se o conteúdo for muito longo */
+  }
+  .nav-menu-container.active {
+    right: 0;
+    /* Desliza o menu para dentro da tela */
+  }
+  .nav-links {
+    margin-top: 55px;
+    flex-direction: column;
+    /* Links de navegação empilhados */
+    margin-bottom: 30px;
+    /* Espaçamento entre as seções de links */
+    width: 100%;
+    /* Ocupa a largura total do container */
+  }
+  .nav-links li {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .nav-links a {
+    color: var(--text-color-light);
+    /* Links claros no menu mobile */
+    font-size: 1.2em;
+    display: block;
+    /* Garante que o link ocupe toda a largura do item da lista */
+    padding: 10px 0;
+    margin: 15px 15px;
+  }
+  .nav-links li:last-child a {
+    border-bottom: none;
+    /* Remove a borda do último item */
+  }
+  .social-links {
+    margin-top: 10px;
+    flex-direction: row;
+    /* Redes sociais alinhadas na horizontal */
+    justify-content: center;
+    /* Centraliza as redes sociais */
+    align-items: center;
+    gap: 15px;
+    /* Espaçamento entre os ícones */
+    width: 100%;
+    /* Ocupa a largura total do container */
+  }
+  .social-links li {
+    margin: 0;
+    /* Remove margem vertical extra */
+  }
+  .social-links svg {
+    width: 30px;
+    height: 30px;
+    /* Remove margem vertical extra */
+  }
+  /* Animação do botão hambúrguer para X */
+  .hamburger-menu.active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+    background-color: var(--text-color-light);
+    /* Cor clara para o X */
+  }
+  .hamburger-menu.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger-menu.active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+    background-color: var(--text-color-light);
+    /* Cor clara para o X */
+  }
+  .hero-content {
+    width: 80%;
+    text-align: center;
+  }
+  .hero-subtitle {
+    font-size: 1.2em;
+    /* Reduz tamanho da fonte em mobile */
+  }
+  .hero-section {
+    padding: 50px 0 0 0;
+  }
+  .about-title {
+    font-size: 1.8em;
+  }
+  .about-section,
+  .presenters-section,
+  .episodes-section {
+    padding: 20px 70px;
+  }
+  .presenter-description {
+    padding: 0;
+  }
+  .presenter-card {
+    padding: 0;
+  }
+  .about-text,
+  .presenter-description {
+    font-size: 1em;
+  }
+  .presenters-content {
+    padding: 30px 0 50px 0;
+  }
+  .presenters-grid {
+    padding-top: 0;
+    gap: 50px;
+  }
+  .about-content-wrapper {
+    flex-direction: column;
+    /* Empilha em telas menores */
+    align-items: center;
+    text-align: center;
+    gap: 0;
+  }
+  .about-title-container {
+    text-align: center;
+    min-width: auto;
+    margin-bottom: 20px;
+  }
+
+  .about-text-container{
+    padding: 0
+  }
+
+ .hide-mobile {
+    display: none;
+  }
+
+  .presenter-card,
+  .benefit-item {
+    flex: 1 1 100%;
+  }
+  .newsletter-form {
+    flex-direction: column;
+    /* Empilha input e botão em telas menores */
+    gap: 10px;
+  }
+  .email-input,
+  .subscribe-button {
+    width: 100%;
+    /* Ocupam 100% da largura em telas menores */
+    max-width: none;
+  }
+  .benefits-grid {
+    grid-template-columns: 1fr;
+    /* Uma coluna em telas menores */
+  }
+
+    .grid-wrapper {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .video-grid {
+    max-width: 100%;
+    grid-template-columns: 1fr;
+    gap: 40px; /* Aumenta o espaçamento entre o vídeo e os cards */
+    text-align: center; /* Centraliza o texto e botões dentro do grid */
+  }
+
+  .video-section {
+  padding: 40px;
+  }
+
+
+  /* Faz com que a coluna lateral seja empilhada */
+  .conteudo-lateral {
+    flex-direction: column;
+    gap: 20px;
+  }
+  /* Ajuste para o footer em telas menores */
+  .main-footer {
+    height: auto;
+    padding: 10px;
+    font-size: 0.8em;
+  }
+  .benefits-section {
+    flex-direction: column;
+    /* Empilha em mobile */
+    min-width: auto;
+    /* Remove largura mínima fixa para mobile */
+    min-height: auto;
+    /* Remove altura mínima fixa para mobile */
+  }
+  .benefits-content-wrapper,
+  .bg_newsletter {
+    max-width: 100%;
+    min-height: 250px;
+    /* Altura mínima para cada parte no mobile */
+    /* Remova padding-top/bottom específicos da imagem aqui se eles não forem desejados no mobile/tablet */
+    background-position: center center;
+    /* Centraliza a imagem no mobile/tablet */
+    background-size: contain;
+    /* Garante que a imagem caiba no espaço */
+  }
+  .benefits-content-wrapper {
+    padding: 40px 30px;
+  }
+  .benefits-section .section-title,
+  .benefits-grid {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .sponsors-grid {
+    display: flex;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    max-width: 1200px;
+    width: 100%;
+    justify-items: center;
+    align-items: center;
+  }
+  .sponsor-item {
+    padding: 0;
+    border-radius: 8px;
+  }
+
+  /* Novo estilo para o elemento de fundo SVG */
+  .fundo-svg-1 {
+    left: -100px;
+    /* Alinha o elemento totalmente à direita do pai */
+    top: 100rem;
+    /* Ajustado para mover o elemento mais para baixo */
+    transform: translateY(-50%);
+    /* Ajusta a centralização vertical para ser perfeita */
+    width: 80%;
+  }
+  .fundo-svg-2 {
+    right: 0;
+    /* Alinha o elemento totalmente à direita do pai */
+    margin-top: 65.625rem;
+    /* Centraliza verticalmente o elemento */
+    transform: translateY(-50%);
+    /* Ajusta a centralização vertical para ser perfeita */
+    width: 80%;
+  }
+}
+
+/* Esconde o nav-menu-container em telas maiores */
+@media (min-width: 1025px) {
+  .hamburger-menu {
+    display: none;
+    /* Esconde o hambúrguer em desktop */
+  }
+  .nav-menu-container {
+    display: flex;
+    /* Mostra o container em desktop */
+    flex-direction: row;
+    /* Alinha os itens em linha */
+    align-items: center;
+  }
+  .nav-links {
+    display: flex;
+    /* Garante que os links de navegação apareçam */
+    flex-direction: row;
+  }
+  .social-links {
+    display: flex;
+    /* Garante que os links sociais apareçam */
+    flex-direction: row;
+  }
+
+}
+@media (max-width: 700px) {
+  .hero-subtitle {
+    font-size: 1em;
+  }
+  .about-section,
+  .presenters-section,
+  .episodes-section {
+    padding: 20px 40px;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .social-media-section {
+    padding: 30px;
+  }
+  .social-icons-grid {
+    gap: 10px; 
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .social-icon-item {
+    align-items: center;
+    text-align: center;
+    justify-content: start;
+    padding: 10px 10px 10px 40px;
+  }
+  
+  .social-icon-img {
+    width: 30px;
+    height: 30px;
+  }
+  .social-icon-text {
+    font-size: 1.2em;
+  }
+  .whatsapp-float {
+    width: 50px;
+    /* Reduz o tamanho do botão em telas menores */
+    height: 50px;
+    bottom: 20px;
+    /* Ajusta a posição em telas menores */
+    right: 20px;
+    font-size: 24px;
+  }
+  .whatsapp-icon {
+    width: 30px;
+    /* Reduz o tamanho do ícone em telas menores */
+    height: 30px;
+  }
+}
+@media (max-width: 480px) {
+  .cta-button {
+    font-size: 1em;
+    padding: 10px;
+    border-radius: 18px;
+    min-width: 240px;
+  }
+  .hero-title {
+    font-size: clamp(1.7em, 4.5vw, 2em);
+    /* Ajuste para mobile */
+  }
+  .episodes-section {
+    padding: 0 40px;
+  }
+  .fundo-svg-2 {
+    right: 0;
+  }
+  .fundo-svg-1 {
+    left: -40px;
+  }
+
+  .video-section{
+    padding: 5px 40px;
+  }
+    .card-lateral {
+    /* Garante o empilhamento vertical e alinha o conteúdo no centro */
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 15px;
+    gap: 0;
+  }
+
+  .card-content {
+    /* Centraliza o conteúdo de texto e o botão */
+    align-items: center;
+    text-align: center;
+    margin-left: 0; /* Remove a margem para alinhamento central */
+  }
+
+  .card-logo {
+    /* Ajusta o tamanho da logo para telas ainda menores */
+    margin-bottom: 10px;
+    height: 90px;
+  }
+
+  .card-lateral p {
+    text-align: justify; /* Garante que o parágrafo também esteja centralizado */
+  }
+    .social-icons-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+  @media (max-width: 380px) {
+    .hero-content {
+      width: 90%;
+      text-align: center;
+    }
+  }
